@@ -21,6 +21,7 @@ class ExtractedClause:
     start_position: int
     end_position: int
     confidence: float = 1.0
+    confidence_label: str = "High"  # "Very High", "High", "Medium", "Low", "Very Low"
     risk_level: str = "medium"
     key_obligations: list[str] = field(default_factory=list)
     red_flags: list[str] = field(default_factory=list)
@@ -40,6 +41,7 @@ class ExtractedClause:
             "start_position": self.start_position,
             "end_position": self.end_position,
             "confidence": self.confidence,
+            "confidence_label": self.confidence_label,
             "risk_level": self.risk_level,
             "key_obligations": self.key_obligations,
             "red_flags": self.red_flags,
@@ -128,6 +130,7 @@ class HybridClauseDetector:
                         start_position=raw["start_position"],
                         end_position=raw["end_position"],
                         confidence=ai_result.confidence,
+                        confidence_label=ai_result.confidence_label,
                         risk_level=ai_result.risk_level,
                         key_obligations=ai_result.key_obligations,
                         red_flags=ai_result.red_flags,

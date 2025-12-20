@@ -1,4 +1,4 @@
-"""AI-Powered Clause Classifier - Worker Agent using GPT-5 Nano.
+"""AI-Powered Clause Classifier - Worker Agent using GPT-5 Mini.
 
 This module uses LLM intelligence to semantically classify clauses,
 replacing brittle keyword matching with true understanding.
@@ -18,6 +18,7 @@ class ClassificationResult:
     """Result of AI clause classification."""
     clause_type: str
     confidence: float
+    confidence_label: str  # "Very High", "High", "Medium", "Low", "Very Low"
     reasoning: str
     risk_level: str  # low, medium, high, critical
     key_obligations: list[str]
@@ -29,80 +30,96 @@ class ClassificationResult:
     cost_usd: float = 0.0  # Estimated cost
 
 
+def bucket_confidence(raw: float) -> tuple[str, float]:
+    """Convert raw confidence to a consistent bucketed value.
+    
+    Returns:
+        Tuple of (label, normalized_value) for consistent display.
+    """
+    if raw >= 0.90:
+        return ("Very High", 0.95)
+    elif raw >= 0.75:
+        return ("High", 0.80)
+    elif raw >= 0.60:
+        return ("Medium", 0.70)
+    elif raw >= 0.40:
+        return ("Low", 0.50)
+    else:
+        return ("Very Low", 0.30)
+
+
 # System prompt for the clause classifier worker
-CLASSIFIER_SYSTEM_PROMPT = """System: You are a legal document analysis expert tasked with contract clause classification and risk assessment.
+CLASSIFIER_SYSTEM_PROMPT = """You are a legal document analysis expert. Classify contract clauses accurately and confidently.
 
-Begin with a concise checklist (3-7 bullets) of what you will do; keep items conceptual, not implementation-level.
+## Your Task
+Given a clause from a legal contract:
+1. Identify the clause type from the categories below
+2. Assess risk level based on language
+3. Extract key obligations
+4. Flag problematic terms
 
-Given a clause from a legal contract, perform the following:
-
-1. Identify the clause type from standard legal categories.
-2. Assess the risk level based on the language used.
-3. Extract any key obligations mentioned.
-4. Flag potentially problematic terms.
-
-If unsure, clarify assumptions and choose the closest applicable category or risk level (default to 'other' and 'medium' respectively if classification is unclear).
-
-After classifying, validate your output to ensure all required fields are present and explanations are concise.
-
-Standard clause categories (you may also identify and label others not listed):
+## Clause Categories
 - indemnification: Hold harmless, indemnify, defend against claims
-- termination: End of agreement, cancellation rights
+- termination: End of agreement, cancellation rights, early termination
 - confidentiality: NDA, proprietary information, trade secrets
 - limitation_of_liability: Liability caps, exclusion of damages
 - governing_law: Jurisdiction, choice of law, venue
 - dispute_resolution: Arbitration, mediation, litigation procedures
 - force_majeure: Acts of God, unforeseeable circumstances
-- assignment: Transfer of rights, delegation
-- amendment: Modification procedures
+- assignment: Transfer of rights, delegation, subcontracting restrictions
+- amendment: Modification procedures, changes require written consent
 - waiver: Waiver of rights, no waiver clauses
 - severability: Invalidity of provisions
-- entire_agreement: Integration clause
-- notice: Notification requirements
-- intellectual_property: IP ownership, licensing
-- warranty: Representations, guarantees
-- representations: Statements of fact
-- insurance: Coverage requirements
-- compliance: Regulatory requirements
-- data_protection: Privacy, GDPR, personal data
-- audit_rights: Inspection, records access
-- payment: Compensation, fees, invoicing
-- scope_of_work: Services, deliverables
-- term: Duration, renewal
+- entire_agreement: Integration clause, supersedes prior agreements
+- notice: Notification requirements, addresses, delivery methods
+- intellectual_property: IP ownership, licensing, work product
+- warranty: Representations, guarantees, disclaimers
+- insurance: Coverage requirements, policy limits
+- compliance: Regulatory requirements, legal obligations
+- audit_rights: Inspection, records access, financial review
+- payment: Compensation, fees, invoicing, reimbursement
+- scope_of_work: Services, deliverables, specifications
+- term: Duration, renewal, extension
 - definitions: Defined terms
-- other: For clauses that do not fit standard categories
+- other: Only if no category fits
 
-Risk levels:
-- low: Standard language and balanced terms
-- medium: Some one-sided terms but reasonable
-- high: Significantly one-sided or unusual provisions
-- critical: Extremely one-sided or potentially harmful terms
+## Confidence Scoring Guide
+- 0.90-1.00: Clear match with explicit keywords (e.g., "shall indemnify" → indemnification)
+- 0.80-0.89: Strong match with typical clause language
+- 0.70-0.79: Good match but some ambiguity or mixed content
+- 0.60-0.69: Reasonable classification, could fit multiple categories
+- Below 0.60: Unclear content or just a header/title
+
+## Risk Levels
+- low: Standard, balanced terms
+- medium: Some one-sided terms but industry-standard
+- high: Significantly one-sided, unusual provisions
+- critical: Extremely one-sided, potentially harmful
 
 ## Output Format
-Respond ONLY with valid JSON in the following format:
-{
-  "clause_type": "string (required; must be one of the standard categories or 'other')",
-  "confidence": "float [0.0 - 1.0] (required; likelihood the classification is correct)",
-  "reasoning": "string (required; brief explanation of classification)",
-  "risk_level": "string (required; one of: low, medium, high, critical)",
-  "key_obligations": ["string", ...],
-  "red_flags": ["string", ...]
-}
-Note: The arrays key_obligations and red_flags must be included in output. They may be empty arrays if none found, but must always be present.
+Respond with valid JSON only:
+{"clause_type": "category", "confidence": 0.85, "reasoning": "Brief explanation", "risk_level": "low|medium|high|critical", "key_obligations": ["obligation1"], "red_flags": ["flag1"]}
 
-Example Output:
-{
-  "clause_type": "indemnification",
-  "confidence": 0.95,
-  "reasoning": "The clause explicitly requires one party to indemnify and hold harmless the other party against third-party claims.",
-  "risk_level": "high",
-  "key_obligations": ["Party A must indemnify Party B for any third-party claims arising from breaches."],
-  "red_flags": ["Obligation is one-sided favoring Party B", "No carve-outs for gross negligence"]
-}"""
+## Examples
+
+### Example 1: High Confidence Classification
+Input: "INDEMNIFICATION. Contractor shall defend, indemnify, and hold harmless the Company from any claims arising from Contractor's negligence."
+Output:
+{"clause_type": "indemnification", "confidence": 0.95, "reasoning": "Contains explicit 'defend, indemnify, and hold harmless' language - classic indemnification clause.", "risk_level": "medium", "key_obligations": ["Contractor must defend Company from claims", "Contractor must indemnify Company for negligence-related claims"], "red_flags": []}
+
+### Example 2: High Confidence with Risk
+Input: "TERMINATION FOR CONVENIENCE. Company may terminate this Agreement at any time for any reason upon 30 days written notice."
+Output:
+{"clause_type": "termination", "confidence": 0.92, "reasoning": "Explicit termination for convenience provision with notice period.", "risk_level": "high", "key_obligations": ["Company may terminate at any time", "30 days written notice required"], "red_flags": ["One-sided termination right favoring Company", "No termination right for Contractor"]}
+
+### Example 3: Title Only (Lower Confidence)
+Input: "COMPENSATION"
+Output:
+{"clause_type": "payment", "confidence": 0.70, "reasoning": "Title indicates payment/compensation section but no substantive text to analyze.", "risk_level": "low", "key_obligations": [], "red_flags": ["Incomplete clause - only title provided"]}"""
 
 
 class AIClauseClassifier:
-    """AI-powered clause classifier using GPT-5 Nano."""
+    """AI-powered clause classifier using GPT-5 Mini."""
     
     def __init__(self) -> None:
         """Initialize the AI classifier."""
@@ -117,6 +134,108 @@ class AIClauseClassifier:
                 raise ValueError("OpenAI API key not configured. Set OPENAI_API_KEY in .env")
             self._client = OpenAI(api_key=settings.openai_api_key)
         return self._client
+    
+    def _parse_json_response(self, text: str) -> dict:
+        """Parse JSON from LLM response with multiple repair strategies.
+        
+        Handles common LLM JSON generation issues:
+        1. Markdown code blocks
+        2. Unescaped quotes in strings
+        3. Missing/extra commas
+        4. Truncated responses
+        """
+        import re
+        
+        # Strategy 1: Extract from markdown code blocks
+        if "```json" in text:
+            text = text.split("```json")[1].split("```")[0]
+        elif "```" in text:
+            text = text.split("```")[1].split("```")[0]
+        
+        text = text.strip()
+        
+        # Strategy 2: Try direct parsing first
+        try:
+            return json.loads(text)
+        except json.JSONDecodeError:
+            pass
+        
+        # Strategy 3: Extract JSON object with regex (handles surrounding text)
+        json_match = re.search(r'\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\}', text, re.DOTALL)
+        if json_match:
+            try:
+                return json.loads(json_match.group())
+            except json.JSONDecodeError:
+                text = json_match.group()  # Continue with extracted JSON
+        
+        # Strategy 4: Repair common issues
+        repaired = text
+        
+        # Fix: Remove newlines within string values (common LLM issue)
+        repaired = re.sub(r'(?<=["\'])\s*\n\s*(?=[^"\']*["\'])', ' ', repaired)
+        
+        # Fix: Escape unescaped quotes inside strings
+        # Find string values and escape internal quotes
+        def escape_inner_quotes(match):
+            content = match.group(1)
+            # Escape quotes that aren't already escaped
+            escaped = re.sub(r'(?<!\\)"', '\\"', content)
+            return f'"{escaped}"'
+        
+        # Match string values (content between quotes)
+        repaired = re.sub(r'"([^"\\]*(?:\\.[^"\\]*)*)"', escape_inner_quotes, repaired)
+        
+        # Fix: Remove trailing commas before closing brackets
+        repaired = re.sub(r',\s*([}\]])', r'\1', repaired)
+        
+        # Fix: Add missing commas between array elements
+        repaired = re.sub(r'"\s*"', '", "', repaired)
+        
+        try:
+            return json.loads(repaired)
+        except json.JSONDecodeError:
+            pass
+        
+        # Strategy 5: Build minimal valid response from regex extraction
+        result = {
+            "clause_type": "unknown",
+            "confidence": 0.5,
+            "reasoning": "JSON parsing required fallback extraction",
+            "risk_level": "medium",
+            "key_obligations": [],
+            "red_flags": []
+        }
+        
+        # Try to extract individual fields
+        type_match = re.search(r'"clause_type"\s*:\s*"([^"]+)"', text)
+        if type_match:
+            result["clause_type"] = type_match.group(1)
+        
+        conf_match = re.search(r'"confidence"\s*:\s*([\d.]+)', text)
+        if conf_match:
+            result["confidence"] = float(conf_match.group(1))
+        
+        reason_match = re.search(r'"reasoning"\s*:\s*"([^"]*)"', text)
+        if reason_match:
+            result["reasoning"] = reason_match.group(1)
+        
+        risk_match = re.search(r'"risk_level"\s*:\s*"([^"]+)"', text)
+        if risk_match:
+            result["risk_level"] = risk_match.group(1)
+        
+        # Extract obligations array
+        oblig_match = re.search(r'"key_obligations"\s*:\s*\[([^\]]*)\]', text)
+        if oblig_match:
+            items = re.findall(r'"([^"]+)"', oblig_match.group(1))
+            result["key_obligations"] = items
+        
+        # Extract red_flags array
+        flags_match = re.search(r'"red_flags"\s*:\s*\[([^\]]*)\]', text)
+        if flags_match:
+            items = re.findall(r'"([^"]+)"', flags_match.group(1))
+            result["red_flags"] = items
+        
+        return result
     
     def classify(self, clause_text: str, title: str = "") -> ClassificationResult:
         """Classify a single clause using AI.
@@ -139,29 +258,24 @@ Clause Text:
         
         try:
             response = self.client.chat.completions.create(
-                model="gpt-5-nano",
+                model="gpt-5-mini",
                 messages=[
                     {"role": "system", "content": CLASSIFIER_SYSTEM_PROMPT},
                     {"role": "user", "content": user_prompt}
                 ],
                 max_completion_tokens=500,
-                # GPT-5 Nano specific parameters
+                seed=42,  # Fixed seed for reproducible outputs
+                # GPT-5 Mini specific parameters
                 extra_body={
-                    "reasoning_effort": "minimal",
+                    "reasoning_effort": "low",  # Better reasoning than Nano
                     "verbosity": "low"
                 }
             )
             
             result_text = response.choices[0].message.content or "{}"
             
-            # Parse JSON response
-            # Handle markdown code blocks if present
-            if "```json" in result_text:
-                result_text = result_text.split("```json")[1].split("```")[0]
-            elif "```" in result_text:
-                result_text = result_text.split("```")[1].split("```")[0]
-            
-            result = json.loads(result_text.strip())
+            # Robust JSON extraction and parsing
+            result = self._parse_json_response(result_text)
             
             # Extract token usage from response
             usage = response.usage
@@ -169,12 +283,17 @@ Clause Text:
             output_tokens = usage.completion_tokens if usage else 0
             total_tokens = usage.total_tokens if usage else 0
             
-            # Calculate cost (GPT-5 Nano pricing: $0.05/M input, $0.40/M output)
-            cost_usd = (input_tokens * 0.05 / 1_000_000) + (output_tokens * 0.40 / 1_000_000)
+            # Calculate cost (GPT-5 Mini pricing: $0.25/M input, $2/M output)
+            cost_usd = (input_tokens * 0.25 / 1_000_000) + (output_tokens * 2 / 1_000_000)
+            
+            # Bucket confidence for consistent display
+            raw_confidence = float(result.get("confidence", 0.5))
+            confidence_label, bucketed_confidence = bucket_confidence(raw_confidence)
             
             return ClassificationResult(
                 clause_type=result.get("clause_type", "unknown"),
-                confidence=float(result.get("confidence", 0.5)),
+                confidence=bucketed_confidence,
+                confidence_label=confidence_label,
                 reasoning=result.get("reasoning", ""),
                 risk_level=result.get("risk_level", "medium"),
                 key_obligations=result.get("key_obligations", []),
@@ -185,20 +304,11 @@ Clause Text:
                 cost_usd=cost_usd,
             )
             
-        except json.JSONDecodeError as e:
-            # Fallback if JSON parsing fails
-            return ClassificationResult(
-                clause_type="unknown",
-                confidence=0.0,
-                reasoning=f"Failed to parse AI response: {str(e)}",
-                risk_level="medium",
-                key_obligations=[],
-                red_flags=["AI classification failed"],
-            )
         except Exception as e:
             return ClassificationResult(
                 clause_type="unknown",
-                confidence=0.0,
+                confidence=0.30,
+                confidence_label="Very Low",
                 reasoning=f"AI classification error: {str(e)}",
                 risk_level="medium",
                 key_obligations=[],

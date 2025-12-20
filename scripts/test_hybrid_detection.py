@@ -3,6 +3,7 @@
 import sys
 import os
 import json
+import time
 
 sys.path.append(os.getcwd())
 
@@ -53,7 +54,9 @@ def test_hybrid_detection(pdf_path: str, use_ai: bool = True) -> None:
     mode = "AI-Powered" if use_ai else "Structure Only"
     print(f"\n🤖 Running {mode} clause detection...")
     
+    start_time = time.time()
     result = hybrid_detector.extract_to_json(content.raw_text, use_ai=use_ai)
+    elapsed_time = time.time() - start_time
     
     print(f"✅ Found {result['total_clauses']} clauses")
     print(f"📊 Clause types: {result['clause_types']}")
@@ -72,7 +75,8 @@ def test_hybrid_detection(pdf_path: str, use_ai: bool = True) -> None:
     for i, clause in enumerate(result['clauses'], 1):
         emoji = risk_emoji.get(clause['risk_level'], "⚪")
         print(f"{i}. {emoji} [{clause['clause_type'].upper()}] {clause['title']}")
-        print(f"   Confidence: {clause['confidence']:.0%} | Risk: {clause['risk_level']}")
+        label = clause.get('confidence_label', 'Medium')
+        print(f"   Confidence: {label} | Risk: {clause['risk_level']}")
         if clause['reasoning']:
             print(f"   Reasoning: {clause['reasoning']}")
         if clause['key_obligations']:
@@ -88,6 +92,10 @@ def test_hybrid_detection(pdf_path: str, use_ai: bool = True) -> None:
         print(f"   Output tokens: {usage['total_output_tokens']:,}")
         print(f"   Total tokens:  {usage['total_tokens']:,}")
         print(f"   Total cost:    ${usage['total_cost_usd']:.4f}")
+    
+    # Display timing
+    minutes, seconds = divmod(elapsed_time, 60)
+    print(f"\n⏱️  Time taken: {int(minutes)}m {seconds:.1f}s")
     
     output_path = "tests/hybrid_clause_output.json"
     with open(output_path, "w", encoding="utf-8") as f:
