@@ -2,15 +2,19 @@
 
 This module uses LLM intelligence to semantically classify clauses,
 replacing brittle keyword matching with true understanding.
+
+Implements MAKER framework reliability filtering with discard-and-retry.
 """
 
 import json
+import logging
 from dataclasses import dataclass
 from typing import Optional
 
 from openai import OpenAI
 
 from app.config import get_settings
+from core.filtering.reliability_filter import reliability_filter
 
 
 @dataclass
@@ -256,64 +260,102 @@ Clause Text:
 {clause_text[:2000]}  # Limit to avoid token overflow
 """
         
-        try:
-            response = self.client.chat.completions.create(
-                model="gpt-5-mini",
-                messages=[
-                    {"role": "system", "content": CLASSIFIER_SYSTEM_PROMPT},
-                    {"role": "user", "content": user_prompt}
-                ],
-                max_completion_tokens=500,
-                seed=42,  # Fixed seed for reproducible outputs
-                # GPT-5 Mini specific parameters
-                extra_body={
-                    "reasoning_effort": "low",  # Better reasoning than Nano
-                    "verbosity": "low"
-                }
-            )
-            
-            result_text = response.choices[0].message.content or "{}"
-            
-            # Robust JSON extraction and parsing
-            result = self._parse_json_response(result_text)
-            
-            # Extract token usage from response
-            usage = response.usage
-            input_tokens = usage.prompt_tokens if usage else 0
-            output_tokens = usage.completion_tokens if usage else 0
-            total_tokens = usage.total_tokens if usage else 0
-            
-            # Calculate cost (GPT-5 Mini pricing: $0.25/M input, $2/M output)
-            cost_usd = (input_tokens * 0.25 / 1_000_000) + (output_tokens * 2 / 1_000_000)
-            
-            # Bucket confidence for consistent display
-            raw_confidence = float(result.get("confidence", 0.5))
-            confidence_label, bucketed_confidence = bucket_confidence(raw_confidence)
-            
-            return ClassificationResult(
-                clause_type=result.get("clause_type", "unknown"),
-                confidence=bucketed_confidence,
-                confidence_label=confidence_label,
-                reasoning=result.get("reasoning", ""),
-                risk_level=result.get("risk_level", "medium"),
-                key_obligations=result.get("key_obligations", []),
-                red_flags=result.get("red_flags", []),
-                input_tokens=input_tokens,
-                output_tokens=output_tokens,
-                total_tokens=total_tokens,
-                cost_usd=cost_usd,
-            )
-            
-        except Exception as e:
-            return ClassificationResult(
-                clause_type="unknown",
-                confidence=0.30,
-                confidence_label="Very Low",
-                reasoning=f"AI classification error: {str(e)}",
-                risk_level="medium",
-                key_obligations=[],
-                red_flags=["AI classification error"],
-            )
+        # MAKER framework: retry loop with reliability filtering
+        MAX_RETRIES = 3
+        logger = logging.getLogger(__name__)
+        
+        last_discard_reason = ""
+        total_input_tokens = 0
+        total_output_tokens = 0
+        
+        for attempt in range(MAX_RETRIES):
+            try:
+                # Vary seed on retries to get different responses
+                response = self.client.chat.completions.create(
+                    model="gpt-5-mini",
+                    messages=[
+                        {"role": "system", "content": CLASSIFIER_SYSTEM_PROMPT},
+                        {"role": "user", "content": user_prompt}
+                    ],
+                    max_completion_tokens=500,
+                    seed=42 + attempt,  # Vary seed on retries
+                    # GPT-5 Mini specific parameters
+                    extra_body={
+                        "reasoning_effort": "low",
+                        "verbosity": "low"
+                    }
+                )
+                
+                result_text = response.choices[0].message.content or "{}"
+                
+                # Extract token usage
+                usage = response.usage
+                input_tokens = usage.prompt_tokens if usage else 0
+                output_tokens = usage.completion_tokens if usage else 0
+                
+                # Track cumulative tokens across retries
+                total_input_tokens += input_tokens
+                total_output_tokens += output_tokens
+                
+                # MAKER reliability check - discard unreliable responses
+                reliability_check = reliability_filter.check(result_text, output_tokens)
+                
+                if not reliability_check.is_reliable:
+                    last_discard_reason = reliability_check.reason
+                    logger.warning(
+                        f"🔴 Attempt {attempt + 1}/{MAX_RETRIES} DISCARDED: {reliability_check.reason}"
+                    )
+                    continue  # Retry with different seed
+                
+                # Log successful reliability check
+                logger.info(
+                    f"🟢 Reliability check PASSED (attempt {attempt + 1}, {output_tokens} tokens)"
+                )
+                
+                # Response is reliable - parse and return
+                result = self._parse_json_response(result_text)
+                
+                # Calculate cost (GPT-5 Mini pricing: $0.25/M input, $2/M output)
+                cost_usd = (total_input_tokens * 0.25 / 1_000_000) + (total_output_tokens * 2 / 1_000_000)
+                
+                # Bucket confidence for consistent display
+                raw_confidence = float(result.get("confidence", 0.5))
+                confidence_label, bucketed_confidence = bucket_confidence(raw_confidence)
+                
+                return ClassificationResult(
+                    clause_type=result.get("clause_type", "unknown"),
+                    confidence=bucketed_confidence,
+                    confidence_label=confidence_label,
+                    reasoning=result.get("reasoning", ""),
+                    risk_level=result.get("risk_level", "medium"),
+                    key_obligations=result.get("key_obligations", []),
+                    red_flags=result.get("red_flags", []),
+                    input_tokens=total_input_tokens,
+                    output_tokens=total_output_tokens,
+                    total_tokens=total_input_tokens + total_output_tokens,
+                    cost_usd=cost_usd,
+                )
+                
+            except Exception as e:
+                last_discard_reason = f"API error: {str(e)}"
+                logger.warning(f"Attempt {attempt + 1}/{MAX_RETRIES} failed: {e}")
+                continue
+        
+        # All retries exhausted - return low-confidence fallback
+        logger.error(f"All {MAX_RETRIES} attempts failed. Last reason: {last_discard_reason}")
+        return ClassificationResult(
+            clause_type="unknown",
+            confidence=0.30,
+            confidence_label="Very Low",
+            reasoning=f"Classification unreliable after {MAX_RETRIES} attempts: {last_discard_reason}",
+            risk_level="medium",
+            key_obligations=[],
+            red_flags=["Classification failed reliability checks"],
+            input_tokens=total_input_tokens,
+            output_tokens=total_output_tokens,
+            total_tokens=total_input_tokens + total_output_tokens,
+            cost_usd=(total_input_tokens * 0.25 / 1_000_000) + (total_output_tokens * 2 / 1_000_000),
+        )
     
     def classify_batch(self, clauses: list[dict]) -> list[ClassificationResult]:
         """Classify multiple clauses.
@@ -336,3 +378,59 @@ Clause Text:
 
 # Global instance
 ai_classifier = AIClauseClassifier()
+
+
+# -----------------------------------------------------------------------------
+# BaseWorker-compatible wrapper for the voting framework
+# -----------------------------------------------------------------------------
+
+from .base_worker import BaseWorker, WorkerContext, WorkerResult
+from .worker_registry import WorkerRegistry
+
+
+@WorkerRegistry.register
+class ClauseClassifierWorker(BaseWorker):
+    """Stateless worker for clause classification.
+    
+    Wraps AIClauseClassifier in the BaseWorker interface
+    for use with the voting engine.
+    """
+    
+    TASK_TYPE = "classify_clause"
+    DESCRIPTION = "Classify contract clauses into types with risk analysis"
+    
+    def get_system_prompt(self) -> str:
+        """Return the system prompt for classification."""
+        return CLASSIFIER_SYSTEM_PROMPT
+    
+    def execute(self, context: WorkerContext) -> WorkerResult:
+        """Execute clause classification.
+        
+        Args:
+            context: WorkerContext with clause text and optional title.
+            
+        Returns:
+            WorkerResult with classification data.
+        """
+        # Use the existing classifier logic
+        result = ai_classifier.classify(
+            clause_text=context.text,
+            title=context.title
+        )
+        
+        return WorkerResult(
+            success=result.clause_type != "unknown",
+            data={
+                "clause_type": result.clause_type,
+                "risk_level": result.risk_level,
+                "key_obligations": result.key_obligations,
+                "red_flags": result.red_flags,
+                "reasoning": result.reasoning,
+            },
+            confidence=result.confidence,
+            confidence_label=result.confidence_label,
+            reasoning=result.reasoning,
+            input_tokens=result.input_tokens,
+            output_tokens=result.output_tokens,
+            cost_usd=result.cost_usd,
+        )

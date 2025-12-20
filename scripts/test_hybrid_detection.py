@@ -4,6 +4,13 @@ import sys
 import os
 import json
 import time
+import logging
+
+# Configure logging to see reliability filter activity
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(message)s'
+)
 
 sys.path.append(os.getcwd())
 
