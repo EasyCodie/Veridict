@@ -25,11 +25,15 @@ wheels/
 *.egg
 
 # Virtual environments
-.env
 .venv/
 env/
 venv/
 ENV/
+
+# Environment variables (contains API keys - NEVER commit!)
+.env
+.env.local
+.env.*.local
 
 # IDE
 .idea/
@@ -52,3 +56,16 @@ logs/
 # Uploaded files
 uploads/
 temp/
+
+# Generated output files (regenerated on each test run)
+tests/*_output.json
+tests/clause_output.json
+tests/hybrid_clause_output.json
+
+# Sample PDFs (user-specific, not needed for repo)
+# Keep sample_contract.pdf as a minimal example, exclude large user PDFs
+tests/SampleContract-Shuttle.pdf
+tests/model-contract.pdf
+
+# Keep only minimal sample for testing
+# tests/sample_contract.pdf  # This one IS committed as example

@@ -3,21 +3,53 @@
 import sys
 import os
 import json
+
 sys.path.append(os.getcwd())
 
 from core.decomposition.ingestion import pdf_service
 from core.decomposition.hybrid_detector import hybrid_detector
 
 
-def test_hybrid_detection(pdf_path: str = "tests/SampleContract-Shuttle.pdf", use_ai: bool = True):
-    """Test hybrid clause detection on a PDF file."""
-    print(f"📄 Loading PDF: {pdf_path}")
+def select_pdf_from_tests() -> str:
+    """Display a menu of PDF files from the tests directory for user selection."""
+    tests_dir = "tests"
     
-    # Extract text
+    # Find all PDF files in the tests directory
+    pdf_files = [f for f in os.listdir(tests_dir) if f.lower().endswith('.pdf')]
+    
+    if not pdf_files:
+        print("❌ No PDF files found in the tests/ directory.")
+        sys.exit(1)
+    
+    pdf_files.sort()
+    
+    print("\n📁 Available PDF files in tests/:")
+    print("-" * 40)
+    for i, pdf in enumerate(pdf_files, 1):
+        print(f"  {i}. {pdf}")
+    print("-" * 40)
+    
+    while True:
+        try:
+            choice = input(f"\nSelect a PDF (1-{len(pdf_files)}): ").strip()
+            index = int(choice) - 1
+            if 0 <= index < len(pdf_files):
+                return os.path.join(tests_dir, pdf_files[index])
+            print(f"⚠️  Please enter a number between 1 and {len(pdf_files)}")
+        except ValueError:
+            print("⚠️  Please enter a valid number")
+        except KeyboardInterrupt:
+            print("\n\n👋 Cancelled.")
+            sys.exit(0)
+
+
+def test_hybrid_detection(pdf_path: str, use_ai: bool = True) -> None:
+    """Test hybrid clause detection on a PDF file."""
+    print(f"\n📄 Loading PDF: {pdf_path}")
+    
     content = pdf_service.extract_from_file(pdf_path)
     print(f"✅ Extracted {content.page_count} pages, {content.total_word_count} words")
     
-    # Detect clauses with AI
     mode = "AI-Powered" if use_ai else "Structure Only"
     print(f"\n🤖 Running {mode} clause detection...")
     
@@ -35,9 +67,11 @@ def test_hybrid_detection(pdf_path: str = "tests/SampleContract-Shuttle.pdf", us
     
     print("\n📋 Clause Details:")
     print("-" * 70)
+    risk_emoji = {"low": "🟢", "medium": "🟡", "high": "🟠", "critical": "🔴"}
+    
     for i, clause in enumerate(result['clauses'], 1):
-        risk_emoji = {"low": "🟢", "medium": "🟡", "high": "🟠", "critical": "🔴"}.get(clause['risk_level'], "⚪")
-        print(f"{i}. {risk_emoji} [{clause['clause_type'].upper()}] {clause['title']}")
+        emoji = risk_emoji.get(clause['risk_level'], "⚪")
+        print(f"{i}. {emoji} [{clause['clause_type'].upper()}] {clause['title']}")
         print(f"   Confidence: {clause['confidence']:.0%} | Risk: {clause['risk_level']}")
         if clause['reasoning']:
             print(f"   Reasoning: {clause['reasoning']}")
@@ -47,7 +81,6 @@ def test_hybrid_detection(pdf_path: str = "tests/SampleContract-Shuttle.pdf", us
             print(f"   ⚠️  Flags: {', '.join(clause['red_flags'])}")
         print()
     
-    # Display usage summary
     if 'usage' in result:
         usage = result['usage']
         print("\n💰 API Usage Summary:")
@@ -56,7 +89,6 @@ def test_hybrid_detection(pdf_path: str = "tests/SampleContract-Shuttle.pdf", us
         print(f"   Total tokens:  {usage['total_tokens']:,}")
         print(f"   Total cost:    ${usage['total_cost_usd']:.4f}")
     
-    # Save output
     output_path = "tests/hybrid_clause_output.json"
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(result, f, indent=2, ensure_ascii=False)
@@ -66,5 +98,15 @@ def test_hybrid_detection(pdf_path: str = "tests/SampleContract-Shuttle.pdf", us
 
 if __name__ == "__main__":
     use_ai = "--no-ai" not in sys.argv
-    pdf_path = sys.argv[1] if len(sys.argv) > 1 and not sys.argv[1].startswith("--") else "tests/SampleContract-Shuttle.pdf"
+    
+    # Check for command-line PDF path, otherwise show selection menu
+    pdf_path = None
+    for arg in sys.argv[1:]:
+        if not arg.startswith("--"):
+            pdf_path = arg
+            break
+    
+    if not pdf_path:
+        pdf_path = select_pdf_from_tests()
+    
     test_hybrid_detection(pdf_path, use_ai=use_ai)
