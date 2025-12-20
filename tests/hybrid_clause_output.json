@@ -1,0 +1,1342 @@
+{
+  "total_clauses": 54,
+  "clause_types": [
+    "warranty",
+    "cost_control / payment",
+    "assignment",
+    "authorization",
+    "dispute_resolution",
+    "audit_rights",
+    "compliance",
+    "termination",
+    "reporting",
+    "scope_of_work",
+    "indemnification",
+    "payment",
+    "intellectual_property",
+    "term",
+    "amendment",
+    "costs (not in standard list; treat as 'other')",
+    "entire_agreement",
+    "other",
+    "insurance"
+  ],
+  "risk_summary": {
+    "low": 26,
+    "medium": 25,
+    "high": 3,
+    "critical": 0
+  },
+  "total_red_flags": 98,
+  "red_flags": [
+    "Subjective standard of 'reasonably satisfactory' may create ambiguity in performance expectations",
+    "Lack of objective acceptance criteria or remedies for dissatisfaction",
+    "No explicit qualifications, exclusivity, or replacement terms for key personnel",
+    "Vague on number, names, or acceptance criteria for personnel",
+    "Potential risk if key personnel fail to perform or are unavailable",
+    "Possible ambiguity about who can consent and remedies if consent is withheld or deemed unreasonable",
+    "Potential rigidity affecting personnel changes and project continuity",
+    "No explicit cure or consequence for failing to meet progress milestones.",
+    "Ambiguity in what constitutes 'sufficiently detailed' or 'on schedule' may lead to subjective assessments.",
+    "Missing payment amounts, schedule, invoicing terms, and payment mechanics; potential ambiguity in compensation structure.",
+    "Cap amount blank (requires filling in), creating ambiguity or risk of dispute.",
+    "Reliance on Exhibit B for rates may require cross-document alignment; potential for inconsistency if Exhibit B changes.",
+    "Potential ambiguity if Fee Schedule is altered unilaterally",
+    "Lack of clarity on what constitutes 'overhead' and whether exceptions exist",
+    "Ambiguity about which party is eligible for reimbursement",
+    "Reference to 'current' rates without specifying effective date or scope",
+    "No rate or cap for expenses",
+    "No payment timeline",
+    "No dispute resolution if approval delayed",
+    "No express payment deadline or due date beyond 'monthly in arrears' (potential ambiguity).",
+    "Possible termination right tied to payment delays (dependent on Section 4 not provided).",
+    "No explicit interest or late fees for delayed payments.",
+    "No detail on criteria for approval",
+    "No remedy or escalation if approval delays occur",
+    "Potential ambiguity about what constitutes 'approval' and 'work'",
+    "Approval requirement introduces potential project delay if approvals are not obtained",
+    "No explicit consequences or remedies if cost overrun occurs beyond approval process",
+    "Final invoice deadline could create cash-flow risk if acceptance is delayed, potential for disputes over timing.",
+    "Ambiguity about methodology/timing of reimbursement",
+    "No explicit cap or dispute mechanism for reimbursements",
+    "Statement that agreement is not binding until full execution may affect enforceability",
+    "Termination for convenience by COMMISSION may lead to abrupt project cessation with limited remedies for CONSULTANT beyond incurred costs.",
+    "Reliance on 'allowable costs' and 'reasonably necessary' costs may create ambiguity or disputes over what constitutes payable amounts.",
+    "Termination for insolvency/assignment for benefit of creditors without stated limitations",
+    "No detail on scope of breaches, materiality, or potential cure extension",
+    "Reprocurement costs potentially uncapped beyond 'reasonable costs'",
+    "Relatively long notice period may create continuity risk for COMMISSION.",
+    "Unclear definition of 'default' and how costs are calculated; potential ambiguity in 'reasonable costs' and scope of reprocurement.",
+    "Broad, uncapped indemnity for own misconduct with no carve-outs",
+    "No explicit carve-outs for gross negligence or intentional misconduct by CONSULTANT (reciprocity unclear)",
+    "Ambiguity on who bears defense costs beyond defined scope",
+    "No specified minimum coverage limits included in the excerpt (may be defined elsewhere).",
+    "Ambiguity about which specific policies are required (e.g., general liability, professional liability, workers' comp).",
+    "Potential gap if subconsultants’ coverage is not clearly defined or certified.",
+    "Carve-outs based on certification may create gaps in coverage if misused.",
+    "Reliance on self-certification could affect enforceability if not supported by insurer certificates.",
+    "No explicit requirement for notice of policy termination, cancellation, or insurer financial strength.",
+    "Reliance on reasonableness of cost for tail coverage could create ambiguity if insurance markets change.",
+    "56-word truncation in text hints at drafting issues (incomplete sentence/conforming language).",
+    "Not explicit on minimum coverage limits, endorsements beyond named insured/common conditions.",
+    "Unqualified, unconditional right of the Commission to use, reproduce, publish, display, and derive use of all work without charge",
+    "Perpetual, royalty-free, nonexclusive, irrevocable license to Commission for all work (and sublicenses to third parties)",
+    "No profitability for Consultant from the work products; restriction on profit-making use by Consultant",
+    "Potential overbroad license scope and perpetual rights may impact Consultant’s future reuse.",
+    "Ownership and copyright owned by Commission with no consideration or reciprocity for consultant.",
+    "Works made for hire designation could limit Consultant's future use of deliverables.",
+    "Strong confidentiality with broad restrictions; potential overbreadth and lack of exceptions for legal disclosures.",
+    "No explicit carve-out for compliance with laws or for small-scale reuse unless authorized.",
+    "Ambiguity about which 'provisions' are included (depends on 'this Section' content not provided).",
+    "No detail on potential carve-outs or override mechanisms.",
+    "No explicit consequences for non-compliance",
+    "Vague on enforcement, remedies, or audit rights",
+    "Not explicit about remedies for non-compliance",
+    "Ambiguity in scope of 'reasonably necessary precautions' and potential enforcement remedies",
+    "Ambiguity about which provisions are being included",
+    "No specific protections or carve-outs identified",
+    "Potential for general flow-down obligations without clarity",
+    "No explicit remedy if approval is withheld or unreasonably denied",
+    "Possible rigidity over staffing without objective criteria",
+    "Lacks defined process or timeline for approval",
+    "Clause references an informal committee process without specifying appeal rights, timelines, or binding nature beyond the committee decision",
+    "Excludes audit disputes explicitly; unclear if decisions are binding or reviewable",
+    "Limitation to unresolved claims 'other than audit' may narrow review scope",
+    "No detail on outcome, standards, or binding effect of the board's review",
+    "Ambiguity about who initiates, timelines for the board, and potential follow-up steps",
+    "Ambiguity about how 'timely performance' is measured",
+    "No exceptions or relief provisions during disputes",
+    "Potentially conflicts with dispute resolution procedures or force majeure concepts",
+    "No explicit mechanism (arbitration, mediation, or court) specified for final resolution",
+    "Unclear scope and authority of the Contract Manager",
+    "Potential ambiguity on who bears costs of review",
+    "Ambiguity on binding outcome of the review",
+    "No explicit timeline for the Executive Director's decision",
+    "Unclear whether the review is mandatory or consultative",
+    "No relief during disputes (no excuse for non-performance) could create performance risk if disputes cause delays",
+    "Ambiguity on what constitutes 'timely performance' and potential remedies for delays",
+    "No substantive text provided; unable to determine actual obligations or restrictions",
+    "Ambiguity about permissibility, approval process, and flow-down terms",
+    "No express consequences for non-compliance or failure to obtain authorization",
+    "Authority to approve subcontracting is centralized to Contract Manager; potential for delays",
+    "Vague about which provisions apply",
+    "No specificity on carve-outs, approval process, or enforcement mechanisms",
+    "No explicit mechanism or standards for consent (subjective discretion of COMMISSION).",
+    "Potential rigidity may affect assignment flexibility for Consultant.",
+    "Potential for broader exercise of rights beyond initial scope if not tightly defined",
+    "Designee’s authority depends on existing authorization; need explicit scope and limits",
+    "No explicit carve-outs for fraud, misrepresentation, or gross negligence",
+    "No severability caveat beyond implying invalid terms do not affect others (though it mentions partial invalidity)"
+  ],
+  "usage": {
+    "total_input_tokens": 45087,
+    "total_output_tokens": 8971,
+    "total_tokens": 54058,
+    "total_cost_usd": 0.005843
+  },
+  "clauses": [
+    {
+      "section_number": "1",
+      "title": "DUTIES",
+      "text": "1. DUTIES.",
+      "clause_type": "scope_of_work",
+      "start_position": 356,
+      "end_position": 368,
+      "confidence": 0.4,
+      "risk_level": "low",
+      "key_obligations": [],
+      "red_flags": [],
+      "reasoning": "The title 'DUTIES' suggests obligations or tasks, but the text provided is incomplete ('# Limit to avoid token overflow'). Without substantive language, the closest standard category is scope_of_work as it pertains to duties or deliverables, but the clause content is missing.",
+      "input_tokens": 741,
+      "output_tokens": 113,
+      "cost_usd": 8.225000000000001e-05,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "A",
+      "title": "CONSULTANT agrees to exercise special skill to accomplish the following results in a manner",
+      "text": "A. CONSULTANT agrees to exercise special skill to accomplish the following results in a manner \nreasonably satisfactory to COMMISSION: ______________________________, as specified in Exhibit \nA: Scope of Services, which by this reference is incorporated herein.",
+      "clause_type": "scope_of_work",
+      "start_position": 368,
+      "end_position": 633,
+      "confidence": 0.62,
+      "risk_level": "medium",
+      "key_obligations": [
+        "Consultant must exercise special skill to accomplish specified results",
+        "Performance to be done in a manner reasonably satisfactory to Commission",
+        "Refer to Exhibit A for the exact Scope of Services"
+      ],
+      "red_flags": [
+        "Subjective standard of 'reasonably satisfactory' may create ambiguity in performance expectations",
+        "Lack of objective acceptance criteria or remedies for dissatisfaction"
+      ],
+      "reasoning": "The clause references performing services with a defined scope (Exhibit A: Scope of Services) and requires satisfactory performance, focusing on the work to be done rather than rights or protections.",
+      "input_tokens": 796,
+      "output_tokens": 170,
+      "cost_usd": 0.0001078,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "B",
+      "title": "CONSULTANT shall provide the personnel listed below to perform the above-specified services, which",
+      "text": "B. CONSULTANT shall provide the personnel listed below to perform the above-specified services, which \npersons are hereby designated as key personnel under this Agreement. \n \nName \n \n \nFirm \n \n \n \nFunction \n \n \n \n \n \n \n \n \n \nPrincipal in Charge \n \n \n \n \n \n \n \n \n \nProject Manager",
+      "clause_type": "other",
+      "start_position": 633,
+      "end_position": 916,
+      "confidence": 0.54,
+      "risk_level": "medium",
+      "key_obligations": [
+        " CONSULTANT shall provide personnel listed to perform the services",
+        "Personnel designated as key personnel under the Agreement"
+      ],
+      "red_flags": [
+        "No explicit qualifications, exclusivity, or replacement terms for key personnel",
+        "Vague on number, names, or acceptance criteria for personnel",
+        "Potential risk if key personnel fail to perform or are unavailable"
+      ],
+      "reasoning": "This clause concerns personnel assignment and designation as key personnel. It does not neatly fit standard categories like confidentiality, indemnification, or payment. It aligns closest to scope_of_work or definitions but lacks concrete deliverables or terms. Therefore classified as 'other'.",
+      "input_tokens": 805,
+      "output_tokens": 181,
+      "cost_usd": 0.00011265000000000001,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "C",
+      "title": "No person named in paragraph B of this Section, or his or her successor, shall be removed or replaced by",
+      "text": "C. No person named in paragraph B of this Section, or his or her successor, shall be removed or replaced by \nCONSULTANT, nor shall his or her agreed-upon function hereunder be changed, without the prior \nwritten consent of COMMISSION. Such consent shall not be unreasonably withheld.",
+      "clause_type": "assignment",
+      "start_position": 916,
+      "end_position": 1203,
+      "confidence": 0.58,
+      "risk_level": "medium",
+      "key_obligations": [
+        "No person named in paragraph B or their successor may be removed or replaced by the CONSULTANT without prior written consent of COMMISSION.",
+        "Consent shall not be unreasonably withheld."
+      ],
+      "red_flags": [
+        "Possible ambiguity about who can consent and remedies if consent is withheld or deemed unreasonable",
+        "Potential rigidity affecting personnel changes and project continuity"
+      ],
+      "reasoning": "The clause restricts removal or replacement of named persons and requires prior written consent of COMMISSION, indicating control over personnel assignment and potential transfer of rights/roles. It resembles limits on substitution or assignment of personnel rather than a traditional IP or contractual transfer, but fits closest to assignment/obligation control over personnel.",
+      "input_tokens": 819,
+      "output_tokens": 191,
+      "cost_usd": 0.00011735,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "D",
+      "title": "CONSULTANT’S PROGRESS REPORTS AND/OR MEETINGS",
+      "text": "D. CONSULTANT’S PROGRESS REPORTS AND/OR MEETINGS \n1) The CONSULTANT shall submit written progress reports with each invoice. The report should be \nsufficiently detailed for the Contract Manager to determine if the CONSULTANT is performing to \nexpectations or is on schedule; to provide communication of interim findings; and to sufficiently \naddress any difficulties or special problems encountered, so remedies can be developed. \n2) The CONSULTANT’s Project Manager shall meet with the COMMISSION’s Contract Manager, as \nneeded, to discuss progress on the contract.",
+      "clause_type": "scope_of_work",
+      "start_position": 1203,
+      "end_position": 1773,
+      "confidence": 0.6,
+      "risk_level": "medium",
+      "key_obligations": [
+        "Consultant must submit written progress reports with each invoice detailing performance, schedule, interim findings, difficulties, and remedies.",
+        "Consultant Project Manager must meet with the Commission’s Contract Manager as needed to discuss progress."
+      ],
+      "red_flags": [
+        "No explicit cure or consequence for failing to meet progress milestones.",
+        "Ambiguity in what constitutes 'sufficiently detailed' or 'on schedule' may lead to subjective assessments."
+      ],
+      "reasoning": "The clause governs required progress reporting and meetings related to contract performance, implying monitoring of deliverables and schedule. It fits under scope_of_work (services/deliverables) with performance monitoring language.",
+      "input_tokens": 862,
+      "output_tokens": 186,
+      "cost_usd": 0.00011750000000000001,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "2",
+      "title": "COMPENSATION",
+      "text": "2. COMPENSATION. \nIn consideration for CONSULTANT accomplishing said result, COMMISSION agrees to pay \nCONSULTANT as follows:",
+      "clause_type": "payment",
+      "start_position": 1773,
+      "end_position": 1900,
+      "confidence": 0.65,
+      "risk_level": "low",
+      "key_obligations": [
+        "COMMISION agrees to pay CONSULTANT for accomplished results (pending detail on amounts, timing, and methods)."
+      ],
+      "red_flags": [
+        "Missing payment amounts, schedule, invoicing terms, and payment mechanics; potential ambiguity in compensation structure."
+      ],
+      "reasoning": "The heading and opening text indicate a compensation/payments obligation, specifying payment in exchange for services. The clause is incomplete, but the category aligns with compensation/payment terms.",
+      "input_tokens": 765,
+      "output_tokens": 132,
+      "cost_usd": 9.105e-05,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "A",
+      "title": "Total payment is not to exceed $_____for time and materials at the rates and conditions set forth in",
+      "text": "A. Total payment is not to exceed $_____for time and materials at the rates and conditions set forth in \nExhibit B: Fee Schedule, which by this reference is incorporated herein.",
+      "clause_type": "payment",
+      "start_position": 1900,
+      "end_position": 2081,
+      "confidence": 0.62,
+      "risk_level": "low",
+      "key_obligations": [
+        "Total payment shall not exceed the stated cap ($_____) for time and materials.",
+        "Rates and conditions apply as specified in Exhibit B: Fee Schedule."
+      ],
+      "red_flags": [
+        "Cap amount blank (requires filling in), creating ambiguity or risk of dispute.",
+        "Reliance on Exhibit B for rates may require cross-document alignment; potential for inconsistency if Exhibit B changes."
+      ],
+      "reasoning": "The clause sets a monetary payment cap and references a fee schedule, indicating a financial obligation framework. It does not fit other standard categories as a cap on payment with reference to exhibit.",
+      "input_tokens": 792,
+      "output_tokens": 171,
+      "cost_usd": 0.00010800000000000001,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "B",
+      "title": "In no event, will the CONSULTANT be reimbursed for overhead costs at a rate that exceeds the",
+      "text": "B. In no event, will the CONSULTANT be reimbursed for overhead costs at a rate that exceeds the \noverhead rate set forth in the Fee Schedule.",
+      "clause_type": "payment",
+      "start_position": 2081,
+      "end_position": 2226,
+      "confidence": 0.55,
+      "risk_level": "low",
+      "key_obligations": [
+        "Consultant will not be reimbursed for overhead costs above the overhead rate set forth in the Fee Schedule."
+      ],
+      "red_flags": [
+        "Potential ambiguity if Fee Schedule is altered unilaterally",
+        "Lack of clarity on what constitutes 'overhead' and whether exceptions exist"
+      ],
+      "reasoning": "The clause concerns reimbursement of overhead costs and fees, which relates to compensation/payments under the contract. It does not fit a more specific category like indemnification or expense reimbursement explicitly, so 'payment' is the closest standard category.",
+      "input_tokens": 787,
+      "output_tokens": 154,
+      "cost_usd": 0.00010095000000000001,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "C",
+      "title": "Transportation and subsistence costs shall not exceed the rates authorized to employees under current",
+      "text": "C. Transportation and subsistence costs shall not exceed the rates authorized to employees under current \nU.S. General Service Administration rules.",
+      "clause_type": "costs (not in standard list; treat as 'other')",
+      "start_position": 2226,
+      "end_position": 2378,
+      "confidence": 0.4,
+      "risk_level": "low",
+      "key_obligations": [
+        "Reimbursable transportation and subsistence costs must not exceed GSA-authorized rates for current employees."
+      ],
+      "red_flags": [
+        "Ambiguity about which party is eligible for reimbursement",
+        "Reference to 'current' rates without specifying effective date or scope"
+      ],
+      "reasoning": "The clause governs expense reimbursement limits for transportation and subsistence costs aligned to GSA rates. It does not map neatly to a standard category; closest proxy is 'payment' or 'expense reimbursement' which is not in the provided list, so labeled as 'other'.",
+      "input_tokens": 775,
+      "output_tokens": 170,
+      "cost_usd": 0.00010674999999999999,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "D",
+      "title": "Reimbursable expenses will be billed by CONSULTANT and processed for payment upon approval of",
+      "text": "D. Reimbursable expenses will be billed by CONSULTANT and processed for payment upon approval of \nthe Contract Manager.",
+      "clause_type": "payment",
+      "start_position": 2378,
+      "end_position": 2501,
+      "confidence": 0.55,
+      "risk_level": "low",
+      "key_obligations": [
+        "Consultant will bill reimbursable expenses.",
+        "Contract Manager must approve expenses before payment."
+      ],
+      "red_flags": [
+        "No rate or cap for expenses",
+        "No payment timeline",
+        "No dispute resolution if approval delayed"
+      ],
+      "reasoning": "The clause concerns billing and payment processing for reimbursable expenses, which fits under payment. It references approval by a Contract Manager but lacks detail on rates, timelines, or caps.",
+      "input_tokens": 777,
+      "output_tokens": 132,
+      "cost_usd": 9.165e-05,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "E",
+      "title": "Progress payments will be made no less than monthly in arrears based on satisfactory services provided",
+      "text": "E. Progress payments will be made no less than monthly in arrears based on satisfactory services provided \nand actual allowable incurred costs. A pro rata portion of the CONSULTANT’s fixed fee, if applicable, \nwill be included in the monthly progress payments. If CONSULTANT fails to submit the required\n\nPage 2 \ndeliverable items according to the schedule set forth in the Scope of Services, the COMMISSION may \ndelay payment and/or terminate this Agreement in accordance with the provisions of Section 4 of this \nAgreement.",
+      "clause_type": "payment",
+      "start_position": 2501,
+      "end_position": 3030,
+      "confidence": 0.7,
+      "risk_level": "medium",
+      "key_obligations": [
+        "Client shall make progress payments no less than monthly in arrears.",
+        "Payments based on satisfactory services provided and actual allowable incurred costs.",
+        "Include a pro rata portion of the CONSULTANT’s fixed fee in each monthly payment (if applicable).",
+        "Consultant must submit the required deliverable items according to the Scope of Services schedule.",
+        "Commission may delay payment or terminate the agreement if deliverables are not submitted as scheduled."
+      ],
+      "red_flags": [
+        "No express payment deadline or due date beyond 'monthly in arrears' (potential ambiguity).",
+        "Possible termination right tied to payment delays (dependent on Section 4 not provided).",
+        "No explicit interest or late fees for delayed payments."
+      ],
+      "reasoning": "The clause discusses progress payments, timing (monthly in arrears), conditions (satisfactory services, incurred costs), and consequences (delay payment or termination for delinquency). It aligns with a general payment/compensation framework.",
+      "input_tokens": 856,
+      "output_tokens": 247,
+      "cost_usd": 0.00014160000000000003,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "F",
+      "title": "No payment will be made prior to approval of any work, nor for any work performed prior to approval",
+      "text": "F. No payment will be made prior to approval of any work, nor for any work performed prior to approval \nof this Agreement.",
+      "clause_type": "payment",
+      "start_position": 3030,
+      "end_position": 3156,
+      "confidence": 0.72,
+      "risk_level": "low",
+      "key_obligations": [
+        "No payment will be made before approval of any work.",
+        "No payment will be made for work performed prior to approval of the Agreement."
+      ],
+      "red_flags": [
+        "No detail on criteria for approval",
+        "No remedy or escalation if approval delays occur",
+        "Potential ambiguity about what constitutes 'approval' and 'work'"
+      ],
+      "reasoning": "The clause discusses payment timing and conditions related to approval of work, which falls under payment-related provisions.",
+      "input_tokens": 781,
+      "output_tokens": 145,
+      "cost_usd": 9.705e-05,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "G",
+      "title": "CONSULTANT shall not exceed milestone cost estimates as shown in Exhibit B, except with the prior",
+      "text": "G. CONSULTANT shall not exceed milestone cost estimates as shown in Exhibit B, except with the prior \nwritten approval of the Contract Manager.",
+      "clause_type": "cost_control / payment",
+      "start_position": 3156,
+      "end_position": 3303,
+      "confidence": 0.4,
+      "risk_level": "medium",
+      "key_obligations": [
+        "Consultant shall not exceed milestone cost estimates in Exhibit B",
+        "Any exception requires prior written approval of the Contract Manager"
+      ],
+      "red_flags": [
+        "Approval requirement introduces potential project delay if approvals are not obtained",
+        "No explicit consequences or remedies if cost overrun occurs beyond approval process"
+      ],
+      "reasoning": "The clause governs cost discipline and approval for exceeding cost estimates, but does not map exactly to a standard category. Closest fit is related to payment/cost control; not a standard category list. If forced to choose, 'payment' is the nearest, though not a perfect match.",
+      "input_tokens": 780,
+      "output_tokens": 178,
+      "cost_usd": 0.00011020000000000001,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "H",
+      "title": "The CONSULTANT will be reimbursed after receipt by the COMMISSION’s Contract Manager of",
+      "text": "H. The CONSULTANT will be reimbursed after receipt by the COMMISSION’s Contract Manager of \nitemized invoices. Invoices shall be submitted no later than 45calendar days after the performance of \nwork for which the CONSULTANT is billing. Invoices shall be mailed to the COMMISSION’s \nContract Manager at the following address: \nSCCRTC, 1523 Pacific Ave, Santa Cruz, CA, 95060 \n \nThe invoices must include the following information: \n1. \nLabor (staff name, hours charged, hourly billing rate, current charges and cumulative \ncharges) performed during the billing period by task; \n2. \nItemized expenses incurred during the billing period; \n3. \nTotal invoice/payment requested; \n4. \nTotal amount previously paid under this Agreement;",
+      "clause_type": "payment",
+      "start_position": 3303,
+      "end_position": 4034,
+      "confidence": 0.78,
+      "risk_level": "low",
+      "key_obligations": [
+        "Consultant submits itemized invoices within 45 calendar days after performance",
+        "Invoices are mailed to the specified Contract Manager address",
+        "Invoices must include labor details, itemized expenses, total amount due, and total previously paid"
+      ],
+      "red_flags": [],
+      "reasoning": "Clause governs reimbursement of consultant expenses and invoicing procedure, including timing, submission, and required invoice details.",
+      "input_tokens": 912,
+      "output_tokens": 129,
+      "cost_usd": 9.72e-05,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "5",
+      "title": "Report of expenditures by CONSULTANT and subconsultants for each task and subtask",
+      "text": "5. \nReport of expenditures by CONSULTANT and subconsultants for each task and subtask \nor milestone and estimated percentage completion by such divisions of work; \n6. \nWritten progress reports, in a format to be mutually agreed upon, that is sufficiently \ndetailed for the Contract Manager to determine if the CONSULTANT is performing to \nexpectations and is on schedule; provides communication of interim findings; addresses \nany difficulties or special problems encountered, so remedies can be developed; and other \ninformation as requested by COMMISSION. \n7. \nCONSULTANT's final invoice must be submitted within 60-calendar days after \nacceptance of the CONSULTANT’s work by the Contract Manager.",
+      "clause_type": "reporting",
+      "start_position": 4034,
+      "end_position": 4737,
+      "confidence": 0.4,
+      "risk_level": "low",
+      "key_obligations": [
+        "Consultant and subconsultants must report expenditures for each task/subtask or milestone.",
+        "Provide estimated percentage completion by divisions of work.",
+        "Submit written progress reports in a mutually agreed format with sufficient detail for Contract Manager.",
+        "Report interim findings and communicate difficulties or problems to enable remedies.",
+        "Consultant to submit final invoice within 60 calendar days after acceptance by Contract Manager."
+      ],
+      "red_flags": [
+        "Final invoice deadline could create cash-flow risk if acceptance is delayed, potential for disputes over timing."
+      ],
+      "reasoning": "The clause describes reporting obligations (expenditures, progress reports, final invoice timing). It does not map to a standard category exactly, but most closely aligns with 'notice' or 'audit_rights' / 'payment' given reporting and invoicing requirements. Since 'reporting' is not a listed category, I label as 'other'.",
+      "input_tokens": 890,
+      "output_tokens": 234,
+      "cost_usd": 0.0001381,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "I",
+      "title": "For personnel subject to prevailing wage rates as described in the California Labor Code, all salary",
+      "text": "I. For personnel subject to prevailing wage rates as described in the California Labor Code, all salary \nincreases, which are the direct result of changes in the prevailing wage rates are reimbursable. \n \n3. \nTERM. This Agreement shall take effect on (DATE); contingent upon prior approval by the \nCOMMISSION governing board, and the CONSULTANT shall commence work after notification to \nproceed by the COMMISSION’S Contract Manager. The Agreement shall end on (DATE), unless earlier \nterminated or extended by contract amendment. The CONSULTANT is advised that this Agreement is not \nbinding and enforceable until it is fully executed and approved by the COMMISSION's board.",
+      "clause_type": "payment",
+      "start_position": 4737,
+      "end_position": 5416,
+      "confidence": 0.58,
+      "risk_level": "medium",
+      "key_obligations": [
+        "Reimburse salary increases that result directly from changes in prevailing wage rates for personnel subject to California Labor Code.",
+        "Ensure reimbursement aligns with prevailing wage adjustments."
+      ],
+      "red_flags": [
+        "Ambiguity about methodology/timing of reimbursement",
+        "No explicit cap or dispute mechanism for reimbursements",
+        "Statement that agreement is not binding until full execution may affect enforceability"
+      ],
+      "reasoning": "The clause discusses salary increases and reimbursement related to prevailing wage rates, which relates to compensation/payments. It also includes a term/termination section, but primary focus is on payment/reimbursement terms.",
+      "input_tokens": 886,
+      "output_tokens": 173,
+      "cost_usd": 0.00011350000000000001,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "4",
+      "title": "EARLY TERMINATION",
+      "text": "4. \nEARLY TERMINATION.",
+      "clause_type": "termination",
+      "start_position": 5416,
+      "end_position": 5440,
+      "confidence": 0.4,
+      "risk_level": "low",
+      "key_obligations": [],
+      "red_flags": [],
+      "reasoning": "Only the title 'EARLY TERMINATION' is provided with minimal text; no substantive language to classify beyond termination concepts. Preference is to map to termination category when content is insufficient.",
+      "input_tokens": 746,
+      "output_tokens": 93,
+      "cost_usd": 7.450000000000001e-05,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "A",
+      "title": "COMMISSION may terminate this Agreement for its convenience any time, in whole or part, by giving",
+      "text": "A. COMMISSION may terminate this Agreement for its convenience any time, in whole or part, by giving \nCONSULTANT thirty-day (30-day) written notice thereof. Within thirty days of the COMMISSION's \nreceipt of CONSULTANT's final billing, COMMISSION shall pay CONSULTANT its allowable costs \nincurred to date of termination and those allowable costs determined by COMMISSION to be \nreasonably necessary to effect such termination. Thereafter, CONSULTANT shall have no further \nclaims against COMMISSION under this Agreement.",
+      "clause_type": "term",
+      "start_position": 5440,
+      "end_position": 5965,
+      "confidence": 0.6,
+      "risk_level": "medium",
+      "key_obligations": [
+        "COMMISSION may terminate the Agreement for its convenience with 30 days written notice.",
+        "COMMISSION shall pay CONSULTANT its allowable costs incurred to date of termination.",
+        "COMMISSION shall pay those allowable costs determined by COMMISSION to be reasonably necessary to effect termination.",
+        " CONSULTANT shall have no further claims against COMMISSION under the Agreement after termination."
+      ],
+      "red_flags": [
+        "Termination for convenience by COMMISSION may lead to abrupt project cessation with limited remedies for CONSULTANT beyond incurred costs.",
+        "Reliance on 'allowable costs' and 'reasonably necessary' costs may create ambiguity or disputes over what constitutes payable amounts."
+      ],
+      "reasoning": "The clause grants termination for convenience by one party (COMMISSION) and sets notice and payment of incurred costs, which aligns with termination rights and related procedures. It does not fit strictly into other categories like indemnification or data protection.",
+      "input_tokens": 858,
+      "output_tokens": 233,
+      "cost_usd": 0.0001361,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "B",
+      "title": "COMMISSION may terminate this Agreement for CONSULTANT's default if a federal or state",
+      "text": "B. COMMISSION may terminate this Agreement for CONSULTANT's default if a federal or state \nproceeding for the relief of debtors is undertaken by or against CONSULTANT, or CONSULTANT's\n\nPage 3 \nprincipal, or if CONSULTANT or CONSULTANT's principal makes an assignment for the benefit of \ncreditors, or if CONSULTANT breaches any term(s) or violates any provision(s) of this Agreement and \ndoes not cure such breach or violation within ten (10) days after written notice thereof by \nCOMMISSION. CONSULTANT shall be liable for any and all reasonable costs incurred by \nCOMMISSION as a result of such default, including but not limited to reprocurement costs of the same \nor similar services defaulted by CONSULTANT under this Agreement.",
+      "clause_type": "termination",
+      "start_position": 5965,
+      "end_position": 6702,
+      "confidence": 0.72,
+      "risk_level": "medium",
+      "key_obligations": [
+        "Commission may terminate the agreement for CONSULTANT's default",
+        " CONSULTANT has a 10-day cure period after written notice for breaches or violations"
+      ],
+      "red_flags": [
+        "Termination for insolvency/assignment for benefit of creditors without stated limitations",
+        "No detail on scope of breaches, materiality, or potential cure extension",
+        "Reprocurement costs potentially uncapped beyond 'reasonable costs'"
+      ],
+      "reasoning": "The clause describes termination rights by Commission for CONSULTANT's default, including breach, insolvency actions, and defaults with a cure period.",
+      "input_tokens": 907,
+      "output_tokens": 167,
+      "cost_usd": 0.00011215,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "C",
+      "title": "CONSULTANT may terminate this Agreement by giving the COMMISSION at least one hundred and",
+      "text": "C. CONSULTANT may terminate this Agreement by giving the COMMISSION at least one hundred and \ntwenty (120) days advance written notice. CONSULTANT shall be liable for any and all reasonable \ncosts incurred by COMMISSION as a result of such default, including but not limited to reprocurement \ncosts of the same or similar services defaulted or not provided by CONSULTANT under this \nAgreement. \n \n5. INDEMNIFICATION FOR DAMAGES, TAXES AND CONTRIBUTIONS. \nCONSULTANT shall exonerate, indemnify, defend, and hold harmless the COMMISSION (which for the \npurpose of this Agreement shall include, without limitation, its officers, agents, employees and volunteers) \nfrom and against:",
+      "clause_type": "termination",
+      "start_position": 6702,
+      "end_position": 7382,
+      "confidence": 0.58,
+      "risk_level": "medium",
+      "key_obligations": [
+        "CONSULTANT may terminate with at least 120 days advance written notice.",
+        "CONSULTANT shall be liable for reasonable costs incurred by COMMISSION as a result of CONSULTANT's default (e.g., reprocurement costs).",
+        "COMMISION is entitled to reimbursement of specified costs following termination."
+      ],
+      "red_flags": [
+        "Relatively long notice period may create continuity risk for COMMISSION.",
+        "Unclear definition of 'default' and how costs are calculated; potential ambiguity in 'reasonable costs' and scope of reprocurement."
+      ],
+      "reasoning": "The clause primarily grants CONSULTANT the right to terminate the agreement on 120 days' advance notice and discusses liability for costs resulting from such default, which centers on termination rights and consequences.",
+      "input_tokens": 898,
+      "output_tokens": 206,
+      "cost_usd": 0.0001273,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "A",
+      "title": "Any and all claims, demands, losses, damages, defense costs, or liability of any kind or nature which",
+      "text": "A. Any and all claims, demands, losses, damages, defense costs, or liability of any kind or nature which \nCOMMISSION may sustain or incur or which may be imposed upon it for injury to or death of persons, \nor damage to property which arise out of, pertain to, or relate to CONSULTANT’S negligence, \nrecklessness, or willful misconduct under the terms of this Agreement. Such indemnification includes \nany damage to the person(s), or property(ies) of CONSULTANT and third persons.",
+      "clause_type": "indemnification",
+      "start_position": 7382,
+      "end_position": 7865,
+      "confidence": 0.78,
+      "risk_level": "high",
+      "key_obligations": [
+        "COMMISSION must indemnify CONSULTANT for claims arising from CONSULTANT’s negligence, recklessness, or willful misconduct",
+        "Indemnity covers injury to persons, property damage, and defense costs",
+        "Indemnity extends to third-party damages"
+      ],
+      "red_flags": [
+        "Broad, uncapped indemnity for own misconduct with no carve-outs",
+        "No explicit carve-outs for gross negligence or intentional misconduct by CONSULTANT (reciprocity unclear)",
+        "Ambiguity on who bears defense costs beyond defined scope"
+      ],
+      "reasoning": "The clause requires one party (COMMISSION) to indemnify the other for claims arising from CONSULTANT’s negligence, recklessness, or willful misconduct, including third-party damages.",
+      "input_tokens": 863,
+      "output_tokens": 204,
+      "cost_usd": 0.00012475000000000002,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "B",
+      "title": "Any and all Federal, State and Local taxes, charges, fees, or contributions required to be paid with",
+      "text": "B. Any and all Federal, State and Local taxes, charges, fees, or contributions required to be paid with \nrespect to CONSULTANT and CONSULTANT’S officers, employees and agents engaged in the \nperformance of this Agreement (including, without limitation, unemployment insurance, social security \nand payroll tax withholding). \n \n6. INSURANCE. CONSULTANT, at its sole cost and expense, for the full term of this Agreement, and any \nextensions thereof, shall obtain and maintain at minimum compliance with all of the following insurance \ncoverage(s) and requirements. Such insurance coverage shall be primary coverage as respects \nCOMMISSION and any insurance or self-insurance maintained by COMMISSION shall be excess of \nCONSULTANT’S insurance coverage and shall not contribute to it. \n \nIf CONSULTANT utilizes one or more subconsultants in the performance of this Agreement, \nCONSULTANT shall obtain and maintain Independent CONSULTANT’s Insurance as to each subconsultant \nor otherwise provide evidence of insurance coverage from each subconsultant equivalent to that required of \nCONSULTANT in this Agreement.",
+      "clause_type": "insurance",
+      "start_position": 7865,
+      "end_position": 8979,
+      "confidence": 0.72,
+      "risk_level": "medium",
+      "key_obligations": [
+        "Consultant must obtain and maintain specified insurance coverage for the full term and any extensions.",
+        "Coverage must be primary; Commission's insurance is excess and not contributory.",
+        "If subconsultants are used, Consultant must obtain Independent Consultant insurance for each subconsultant or provide equivalent coverage evidence."
+      ],
+      "red_flags": [
+        "No specified minimum coverage limits included in the excerpt (may be defined elsewhere).",
+        "Ambiguity about which specific policies are required (e.g., general liability, professional liability, workers' comp).",
+        "Potential gap if subconsultants’ coverage is not clearly defined or certified."
+      ],
+      "reasoning": "The text mandates insurance coverage, primary liability, and subconsultant insurance requirements, fitting under insurance provisions of a contract.",
+      "input_tokens": 971,
+      "output_tokens": 208,
+      "cost_usd": 0.00013175,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "A",
+      "title": "Types of Insurance and Minimum Limits",
+      "text": "A. Types of Insurance and Minimum Limits \n \n1) Workers’ Compensation in the minimum statutorily required coverage amounts. This insurance \ncoverage shall not be required if the CONSULTANT has no employees and certifies to this fact by \ninitialing here . \n \n2) Automobile Liability Insurance for each of CONSULTANT’S vehicles used in the performance of \nthis Agreement, including owned, non-owned (e.g. owned by CONSULTANT’S employees), leased \nor hired vehicles, in the minimum amount of $1,000,000 combined single limit per occurrence for \nbodily injury and property damage. This insurance coverage shall not be required if vehicle use by \nthe CONSULTANT is not a material part of performance of this Agreement and CONSULTANT and \nCOMMISSION both certify to this fact by initialing here / .\n\nPage 4 \n3) Comprehensive or Commercial General Liability Insurance coverage in the minimum amount of one \nmillion dollars ($1,000,000) combined single limit (CSL), including coverage for: (a) bodily injury, \n(b) personal injury, (c) broad form property damage, (d) contractual liability, and (e) cross-liability. \n \n4) Professional Liability Insurance in the minimum amount of one million dollars ($1,000,000) \ncombined single limit, if, and only if, this Subparagraph is initialed by CONSULTANT and \nCOMMISSION __ / .",
+      "clause_type": "insurance",
+      "start_position": 8979,
+      "end_position": 10294,
+      "confidence": 0.72,
+      "risk_level": "medium",
+      "key_obligations": [
+        "Consultant must maintain specified insurance coverages at stated limits (workers’ comp, auto liability, general liability, professional liability).",
+        "Certification by CONSULTANT (and Commission) to waive required coverages where applicable.",
+        "Compliance with minimum coverage amounts for each insurance type."
+      ],
+      "red_flags": [
+        "Carve-outs based on certification may create gaps in coverage if misused.",
+        "Reliance on self-certification could affect enforceability if not supported by insurer certificates.",
+        "No explicit requirement for notice of policy termination, cancellation, or insurer financial strength."
+      ],
+      "reasoning": "The clause sets mandatory insurance types and minimum limits (workers' compensation, automobile liability, general liability, professional liability) as conditions of performance, with carve-outs based on certification. This fits the 'insurance' category.",
+      "input_tokens": 1025,
+      "output_tokens": 216,
+      "cost_usd": 0.00013765,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "B",
+      "title": "Other Insurance Provisions",
+      "text": "B. Other Insurance Provisions \n1) If any insurance coverage required in this Agreement is provided on a “Claims Made” rather than \n“Occurrence” form, CONSULTANT agrees to maintain the required coverage for a period of three \n(3) years after the expiration of this Agreement (hereinafter “post agreement coverage”) and any \nextensions thereof. CONSULTANT may maintain the required post agreement coverage by renewal \nor purchase of prior acts or tail coverage. This provision is contingent upon post agreement coverage \nbeing both available and reasonably affordable in relation to the coverage provided during the term of \nthis Agreement. For purposes of interpreting this requirement, a cost not exceeding 100% of the last \nannual policy premium during the term of this Agreement in order to purchase prior acts or tail \ncoverage for post agreement coverage shall be deemed to be reasonable. The COMMISSION will not \nbe responsible for any premiums or assessments on the policy. \n \n2) All required Automobile and Comprehensive or Commercial General Liability Insurance shall be \nendorsed to contain the following clause: \n \n“Santa Cruz County Regional Transportation Commission, its officials, employees, agents and \nvolunteers are added as an additional insured as respects the operations and activities of, or on behalf \nof, the named insured performed under Agreement with the Commission.” \n \n3) All required insurance policies shall be endorsed to contain the following clause: \n“This insurance shall not be canceled until after thirty (30) days prior written notice has been given \nto: \n \n \nSanta Cruz County Regional Transportation Commission \n \n \n \nAttn: Yesenia Parra \n \n \n \n1523 Pacific Avenue \nSanta Cruz, CA 95060 \n \n4) CONSULTANT agrees to provide its insurance broker(s) with a full copy of these insurance \nprovisions and provide COMMISSION on or before the effective date of this Agreement with \nCertificates of Insurance for all required coverages. All Certificates of Insurance shall be delivered or \nsent to: \n \n \n \nSanta Cruz County Regional Transportation Commission \n \n \n \nAttn: Yesenia Parra \n \n \n \n1523 Pacific Avenue \n \n \n \nSanta Cruz, CA 95060 \n \n \n \n5) The CONSULTANT agrees that the insurance herein provided for, shall be in effect at all times \nduring the term of this contract. In the event said insurance coverage expires at any time or times \nduring the term of this contract, the CONSULTANT agrees to provide at least thirty (30) days prior \nnotice to said expiration date; and a new Certificate of Insurance evidencing insurance coverage as \nprovided for herein, for not less than either the remainder of the term of the contract, or for a period \nof not less than one (1) year. New Certificates of Insurance are subject to the approval of the \nCOMMISSION. In the event the CONSULTANT fails to keep in effect at all times insurance\n\nPage 5 \ncoverage as herein provided, the COMMISSION may, in addition to any other remedies it may have, \nterminate this Agreement upon occurrence of such event. \n \n6) If any insurance policy of CONSULTANT required by this document includes language \nconditioning the insurer’s legal obligation to defend or indemnify COMMISSION on the \nperformance of any act(s) by the named insured, then said insurance policy, by endorsement, \nshall also name the COMMISSION as a named insured. Notwithstanding the foregoing, both \nthe CONSULTANT and its insurers agree that by naming the COMMISSION as a named \ninsured, the COMMISSION may at its sole direction, but is not obligated to, perform any act \nrequired by the named insured under said insurance policies. \n \n7) CONSULTANT shall do all things required to be performed by it pursuant to its insurance policies \nincluding but not limited to paying within five (5) work days, all deductibles and self-insured \nretentions (SIR) required to be paid under any insurance policy that may provide defense or \nindemnity coverage to COMMISSION or any additional insured. \n \n8) CONSULTANT shall cause the foregoing provisions to be inserted in all subcontracts for any work \ncovered under this Agreement by a subconsultant compensated more than $50,000 and employing \nmore than fifteen (15) employees, provided that the foregoing provisions shall not apply to contracts \nor subcontracts for standard commercial supplies or raw materials. \n \n7. FEDERAL, STATE AND LOCAL LAWS. CONSULTANT warrants that in the performance of this \nAgreement, it shall exercise usual and customary professional care in its efforts to comply with all applicable \nfederal, state and local laws, statutes and ordinances and all lawful orders, rules and regulations promulgated \nthereunder. In the event of a conflict between the laws and lawful regulations of any government entities \nhaving jurisdiction over the project, the CONSULTANT shall notify COMMISSION of the nature and \nimpact of such conflict. The COMMISSION agrees to cooperate and work with the CONSULTANT in an \neffort to resolve any conflict. \n \n8. EQUAL EMPLOYMENT OPPORTUNITY. During and in relation to the performance of this Agreement, \nCONSULTANT agrees to the following: \n \nThe CONSULTANT shall not discriminate or permit discrimination against any employee or applicant for \nemployment in any manner prohibited by Federal, State and local laws, including but not limited to race, \ncolor, gender, religion, national origin, ancestry, physical or mental disability, medical condition, marital \nstatus, sexual orientation, age (over 18), veteran status, pregnancy, or any other non-merit factor unrelated to \njob duties. \n \nSuch action shall include, but not be limited to, the following: recruitment; advertising, layoff or termination; \nrates of pay or other forms of compensation; and selection for training (including apprenticeship), \nemployment, upgrading, demotion, or transfer. The CONSULTANT agrees to post in conspicuous places, \navailable to employees and applicants for employment, notice setting forth the provisions of this non-\ndiscrimination clause. \n \nCONSULTANT shall comply fully with all federal, State and local laws and regulations which prohibit \ndiscrimination. The CONSULTANT’s signature affixed herein, and dated, shall constitute a certification \nunder penalty of perjury under the laws of the State of California that the CONSULTANT has, unless \nexempt, complied with, the nondiscrimination program requirements of Government Code Section 12990 and \nTitle 2, California Administrative Code, Section 8103.\n\nPage 6 \nIn the event of CONSULTANT’S non-compliance with the non-discrimination clauses of this Agreement or \nwith any of the said rules, regulations or orders the COMMISSION may cancel, terminate or suspend the \nAgreement in whole or in part. CONSULTANT may also be declared ineligible for further agreements with \nthe COMMISSION. \n \n9. HARASSMENT. The COMMISSION maintains a strict policy prohibiting unlawful harassment, including \nsexual harassment, in any form, including verbal, physical and visual harassment by any employee, \nsupervisor, manager, officer or Board member, or agent of the employer. Vendors, CONSULTANTs, and \nconsultants shall not engage in conduct that has an effect of unreasonably interfering with a COMMISSION \nemployee's work performance or creates an intimidating, hostile or offensive work environment. \n \n10. LICENSES. If a license of any kind is required of CONSULTANT, its employees, agents, or sub \nCONSULTANTs by Federal or State law, CONSULTANT warrants that such license has been obtained, is \nvalid and in good standing, that CONSULTANT shall keep it in effect at all times during the terms of this \nAgreement, and that any applicable bond has been posted in accordance with all applicable laws and \nregulations. \n \n11. INDEPENDENT CONSULTANT STATUS. CONSULTANT and COMMISSION have reviewed and \nconsidered the principal test and secondary factors herein and agree that CONSULTANT is an independent \nCONSULTANT and not an employee of COMMISSION. CONSULTANT is responsible for all insurance \n(workers compensation, unemployment, etc.) and all payroll related taxes. CONSULTANT is not entitled to \nany employee benefits. COMMISSION agrees that CONSULTANT shall have the right to control the \nmanner and means of accomplishing the result contracted for herein. \n \n \nPRINCIPAL TEST: The CONSULTANT rather than COMMISSION has the right to control the manner and \nmeans of accomplishing the result contracted for. \n \nSECONDARY FACTORS: (a) The extent of control which, by agreement, COMMISSION may exercise \nover the details of the work is slight rather than substantial; (b) CONSULTANT is engaged in a distinct \noccupation or business; (c) In the locality, the work to be done by CONSULTANT is usually done by a \nspecialist without supervision, rather than under the direction of an employer; (d) The skill required in the \nparticular occupation is substantial rather than slight; (e) The CONSULTANT rather than the COMMISSION \nsupplies the instrumentalities, tools and work place; (f) The length of time for which CONSULTANT is \nengaged is of limited duration rather than indefinite; (g) The method of payment of CONSULTANT is by the \njob rather than by the time; (h) The work is part of a special or permissive activity, program, or project, rather \nthan part of the regular business of COMMISSION; (i) CONSULTANT and COMMISSION believe they are \ncreating an independent CONSULTANT relationship rather than an employer-employee relationship; and (j) \nThe COMMISSION conducts public business. \n \nIt is recognized that it is not necessary that all secondary factors support creation of an independent \nCONSULTANT relationship, but rather that overall there are significant secondary factors which indicate \nthat CONSULTANT is an independent CONSULTANT. \n \nBy their signatures to this Agreement, each of the undersigned certifies that it is his or her considered \njudgment that the CONSULTANT engaged under this Agreement is in fact an independent CONSULTANT. \n \n12. RETENTION AND AUDIT OF RECORDS. For the purpose of determining compliance with Public \nContract Code 10115, et seq. and Title 21, California Code of Regulations, Chapter 21, Section 2500 et seq., \nif applicable and other matters connected with the performance of the contract pursuant to Government Code \n8546.7: CONSULTANT, subconsultants, and the COMMISSION shall maintain all books, documents, \npapers, accounting records, and other evidence pertaining to the performance of the contract, including but\n\nPage 7 \nnot limited to, the costs of administering the Agreement. All parties shall make such materials available at \ntheir respective offices at all reasonable times during the Agreement period and for five (5) years from the \ndate of final payment under this Agreement or until a final audit report is accepted by COMMISSION, \nwhichever occurs first. The COMMISSION and any state or federal auditor, or any duly authorized \nrepresentative of the state or federal government shall have access to any books, records, and documents of \nthe CONSULTANT that are pertinent to the Agreement for audit, examinations, excerpts, and transactions, \nand copies thereof shall be furnished if requested. \n \nSubcontracts in excess of $25,000 shall contain this provision.",
+      "clause_type": "insurance",
+      "start_position": 10294,
+      "end_position": 21544,
+      "confidence": 0.72,
+      "risk_level": "medium",
+      "key_obligations": [
+        "Consultant must maintain post-agreement tail coverage for 3 years if coverage is claims-made.",
+        "Consultant may obtain tail coverage via renewal or prior acts tail; cost deemed reasonable if not exceeding 100% of last annual premium.",
+        "Commission not responsible for premiums/assessments.",
+        "All required policies must name Santa Cruz County Regional Transportation Commission and related parties as additional insured.",
+        "Policies must not be canceled without 30 days' prior written notice to Commission.",
+        "Consultant must provide Certificates of Insurance and share the provisions with its broker before/at effective date."
+      ],
+      "red_flags": [
+        "Reliance on reasonableness of cost for tail coverage could create ambiguity if insurance markets change.",
+        "56-word truncation in text hints at drafting issues (incomplete sentence/conforming language).",
+        "Not explicit on minimum coverage limits, endorsements beyond named insured/common conditions."
+      ],
+      "reasoning": "The clause discusses requirements around insurance coverage, including form (claims-made vs occurrence), post-agreement tail coverage, additional insured status, cancellation notice, and certificates, which aligns with insurance-related terms.",
+      "input_tokens": 1121,
+      "output_tokens": 281,
+      "cost_usd": 0.00016845,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "13",
+      "title": "INSPECTION OF WORK",
+      "text": "13. INSPECTION OF WORK \n The CONSULTANT and any subconsultant shall permit the COMMISSION, the state, and the FHWA if \nfederal participating funds are used in this contract, to review and inspect the project activities and files at all \nreasonable times during the term of this Agreement including review and inspection on a daily basis. \n \n14. ACKNOWLEDGMENT. CONSULTANT shall acknowledge in all reports and literature that the material is \nprepared for and on behalf of the COMMISSION. \n \n15. WORK PRODUCTS. All material, data, information, and written, graphic or other work produced under \nthis Agreement is subject to the unqualified and unconditional right of the COMMISSION to use, reproduce, \npublish, display, and make derivative use of all such work, or any part of it, free of charge and in any manner \nand for any purpose; and to authorize others to do so. If any of the work is subject to copyright, trademark, \nservice mark, or patent, CONSULTANT now grants to the COMMISSION a perpetual, royalty-free, \nnonexclusive and irrevocable license to use, reproduce, publish, use in the creation of derivative works, and \ndisplay and perform the work, or any part of it, and to grant to any third party a comparable and coextensive \nsublicense. \n \nCONSULTANT shall include in any subcontract with a third party for work under this Agreement terms that \npreserve the rights, interests, and obligations created by this Section, and that identify the COMMISSION as \na third-party beneficiary of those provisions. \n \nThe CONSULTANT shall not utilize the work produced under this Agreement for any profit-making venture, \nor sell or grant rights to a third party for that purpose.",
+      "clause_type": "audit_rights",
+      "start_position": 21544,
+      "end_position": 23230,
+      "confidence": 0.55,
+      "risk_level": "high",
+      "key_obligations": [
+        "Consultant and subconsultants must permit review and inspection of project activities and files at reasonable times during the term (including daily review).",
+        "Consultant must ensure subcontract terms preserve Commission rights and designate Commission as a third-party beneficiary."
+      ],
+      "red_flags": [
+        "Unqualified, unconditional right of the Commission to use, reproduce, publish, display, and derive use of all work without charge",
+        "Perpetual, royalty-free, nonexclusive, irrevocable license to Commission for all work (and sublicenses to third parties)",
+        "No profitability for Consultant from the work products; restriction on profit-making use by Consultant",
+        "Potential overbroad license scope and perpetual rights may impact Consultant’s future reuse."
+      ],
+      "reasoning": "The section titled 'INSPECTION OF WORK' grants broad review and inspection rights by the COMMISSION, state, and FHWA, which aligns with audit/inspection provisions. However, the clause also contains substantial IP license terms (Work Products) and collaboration language, so it overlaps with intellectual_property and assignment-like provisions. The primary actionable portion is inspection/audit rights.",
+      "input_tokens": 1097,
+      "output_tokens": 281,
+      "cost_usd": 0.00016725,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "A",
+      "title": "Upon completion of all work under this contract, ownership and title to all custom letters, reports,",
+      "text": "A. Upon completion of all work under this contract, ownership and title to all custom letters, reports, \ndocuments, plans, specifications, and estimates and other products produced as part of this Agreement \n(herein \"deliverables\") will automatically be vested in the COMMISSION; and no further agreement will \nbe necessary to transfer ownership to the COMMISSION. The CONSULTANT shall furnish the \nCOMMISSION all necessary copies of data needed to complete the review and approval process. Copies \nmay be made for CONSULTANT's records but shall not be furnished to others without the \nCOMMISSION's prior written authorization. Such deliverables shall be deemed works made for hire and \nall rights in copyright therein shall be retained by COMMISSION. All information derived from these \ndeliverables is deemed confidential and may not be disclosed to any other party without the express prior \nwritten consent of COMMISSION. No information obtained during audit work performed under this \nAgreement may be used by CONSULTANT for any purpose (internal or external), nor may the \ninformation be discussed with others without the prior written consent of COMMISSION.",
+      "clause_type": "intellectual_property",
+      "start_position": 23230,
+      "end_position": 24398,
+      "confidence": 0.72,
+      "risk_level": "high",
+      "key_obligations": [
+        "Deliverables automatically vest ownership and title in COMMISSION upon completion.",
+        "Consultant to furnish all necessary copies of data for Commission review.",
+        "Copies may be kept by Consultant for records but not shared without Commission consent.",
+        "Deliverables deemed works made for hire; Commission retains all copyright rights.",
+        "All information derived from deliverables deemed confidential and not to be disclosed without Commission consent.",
+        "Consultant may not use audit information for any purpose without Commission consent."
+      ],
+      "red_flags": [
+        "Ownership and copyright owned by Commission with no consideration or reciprocity for consultant.",
+        "Works made for hire designation could limit Consultant's future use of deliverables.",
+        "Strong confidentiality with broad restrictions; potential overbreadth and lack of exceptions for legal disclosures.",
+        "No explicit carve-out for compliance with laws or for small-scale reuse unless authorized."
+      ],
+      "reasoning": "The clause addresses ownership, works made for hire, and copyright in deliverables, which relates to IP rights.",
+      "input_tokens": 971,
+      "output_tokens": 255,
+      "cost_usd": 0.00015055,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "B",
+      "title": "Any subcontract in excess of $25,000 entered into as a result of this contract, shall contain all of the",
+      "text": "B. Any subcontract in excess of $25,000 entered into as a result of this contract, shall contain all of the \nprovisions of this Section.\n\nPage 8",
+      "clause_type": "scope_of_work",
+      "start_position": 24398,
+      "end_position": 24544,
+      "confidence": 0.55,
+      "risk_level": "low",
+      "key_obligations": [
+        "Any subcontracting above $25,000 must incorporate all provisions of this Section."
+      ],
+      "red_flags": [
+        "Ambiguity about which 'provisions' are included (depends on 'this Section' content not provided).",
+        "No detail on potential carve-outs or override mechanisms."
+      ],
+      "reasoning": "The clause mandates that subcontracts above a monetary threshold include all provisions of 'this Section,' indicating a governance over how subcontracts must align with the main contract terms. It relates to the contractual work and deliverables flow, but primarily governs subcontracting terms rather than a standalone scope description.",
+      "input_tokens": 792,
+      "output_tokens": 175,
+      "cost_usd": 0.0001096,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "16",
+      "title": "SAFETY",
+      "text": "16. SAFETY",
+      "clause_type": "other",
+      "start_position": 24544,
+      "end_position": 24556,
+      "confidence": 0.42,
+      "risk_level": "medium",
+      "key_obligations": [],
+      "red_flags": [],
+      "reasoning": "The provided text only shows a title 'SAFETY' with no substantive language. It does not reveal indemnification, liability, or any standard category. Defaults to 'other' with a medium risk due to lack of content.",
+      "input_tokens": 740,
+      "output_tokens": 103,
+      "cost_usd": 7.82e-05,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "A",
+      "title": "The CONSULTANT shall comply with OSHA regulations applicable to CONSULTANT regarding",
+      "text": "A. The CONSULTANT shall comply with OSHA regulations applicable to CONSULTANT regarding \nnecessary safety equipment or procedures. The CONSULTANT shall comply with safety instructions \nissued by the COMMISSION Safety Officer and other COMMISSION representatives. CONSULTANT \npersonnel shall wear hard hats and safety vests at all times while working on the Santa Cruz Branch Rail \nLine.",
+      "clause_type": "compliance",
+      "start_position": 24556,
+      "end_position": 24946,
+      "confidence": 0.7,
+      "risk_level": "low",
+      "key_obligations": [
+        " CONSULTANT shall comply with OSHA regulations applicable to CONSULTANT",
+        " CONSULTANT shall follow safety instructions issued by the COMMISSION Safety Officer and COMMISSION representatives",
+        " CONSULTANT personnel shall wear hard hats and safety vests at all times while working on the Santa Cruz Branch Rail Line"
+      ],
+      "red_flags": [
+        "No explicit consequences for non-compliance",
+        "Vague on enforcement, remedies, or audit rights"
+      ],
+      "reasoning": "The clause requires adherence to OSHA regulations and safety directives, which fits under a broad compliance category. It does not map neatly to a listed category but aligns with regulatory/compliance obligations.",
+      "input_tokens": 818,
+      "output_tokens": 181,
+      "cost_usd": 0.00011330000000000002,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "B",
+      "title": "Areas within the limits of the project are open to public and private traffic. The CONSULTANT shall",
+      "text": "B. Areas within the limits of the project are open to public and private traffic. The CONSULTANT shall \ncomply with all of the requirements set forth in Divisions 11, 12, 13, 14, and 15 of the Vehicle Code. The \nCONSULTANT shall take all reasonably necessary precautions for safe operation of its vehicles and the \nprotection of the traveling public from injury and damage from such vehicles.",
+      "clause_type": "compliance",
+      "start_position": 24946,
+      "end_position": 25342,
+      "confidence": 0.56,
+      "risk_level": "medium",
+      "key_obligations": [
+        "Consultant shall comply with all requirements in Divisions 11-15 of the Vehicle Code.",
+        "Consultant shall take reasonably necessary precautions for safe operation of its vehicles and protection of the traveling public from injury and damage."
+      ],
+      "red_flags": [
+        "Not explicit about remedies for non-compliance",
+        "Ambiguity in scope of 'reasonably necessary precautions' and potential enforcement remedies"
+      ],
+      "reasoning": "The clause requires compliance with specific vehicle code divisions and outlines safety precautions for vehicle operation, which aligns with regulatory compliance and safety obligations rather than the standard categories listed.",
+      "input_tokens": 841,
+      "output_tokens": 171,
+      "cost_usd": 0.00011045000000000001,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "C",
+      "title": "Any subcontract entered into as a result of this contract, shall contain all of the provisions of this Section",
+      "text": "C. Any subcontract entered into as a result of this contract, shall contain all of the provisions of this Section.",
+      "clause_type": "indemnification",
+      "start_position": 25342,
+      "end_position": 25460,
+      "confidence": 0.25,
+      "risk_level": "medium",
+      "key_obligations": [
+        "Subcontracts must include all provisions of this Section."
+      ],
+      "red_flags": [
+        "Ambiguity about which provisions are being included",
+        "No specific protections or carve-outs identified",
+        "Potential for general flow-down obligations without clarity"
+      ],
+      "reasoning": "The clause requires subcontracts to include all provisions of 'this Section', which commonly aims to extend terms (often related to liability, indemnification, or compliance) to subcontracts. However the specific provisions are not stated, so the exact category is unclear; closest standard label is indemnification/flow-down provisions, but it could be general flow-down or compliance. Since no explicit indemnity language is present, classification is uncertain.",
+      "input_tokens": 777,
+      "output_tokens": 184,
+      "cost_usd": 0.00011245000000000002,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "17",
+      "title": "MODIFICATION OF AGREEMENT",
+      "text": "17. MODIFICATION OF AGREEMENT.",
+      "clause_type": "amendment",
+      "start_position": 25460,
+      "end_position": 25492,
+      "confidence": 0.42,
+      "risk_level": "low",
+      "key_obligations": [],
+      "red_flags": [],
+      "reasoning": "The title indicates modification of the agreement, which corresponds to amendment. However, the clause text itself is truncated ('# Limit to avoid token overflow'), providing no substantive language to assess. Classification is based on the heading, but without text, risk and obligations cannot be fully determined.",
+      "input_tokens": 747,
+      "output_tokens": 114,
+      "cost_usd": 8.295000000000001e-05,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "A",
+      "title": "This Agreement may be amended or modified only by mutual written agreement of the parties",
+      "text": "A. This Agreement may be amended or modified only by mutual written agreement of the parties.",
+      "clause_type": "amendment",
+      "start_position": 25492,
+      "end_position": 25587,
+      "confidence": 0.78,
+      "risk_level": "low",
+      "key_obligations": [
+        "Parties must consent in writing to any amendments or modifications."
+      ],
+      "red_flags": [],
+      "reasoning": "The clause explicitly states that the agreement may be amended or modified only by mutual written agreement, which fits the amendment category.",
+      "input_tokens": 767,
+      "output_tokens": 96,
+      "cost_usd": 7.675000000000001e-05,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "B",
+      "title": "The CONSULTANT shall only commence work covered by an amendment after the amendment is",
+      "text": "B. The CONSULTANT shall only commence work covered by an amendment after the amendment is \nexecuted and notification to proceed has been provided by the COMMISSION’s Contract Manager.",
+      "clause_type": "term",
+      "start_position": 25587,
+      "end_position": 25772,
+      "confidence": 0.55,
+      "risk_level": "low",
+      "key_obligations": [
+        "Consultant may commence work only after amendment is executed.",
+        "Notification to proceed must be provided by the Contract Manager."
+      ],
+      "red_flags": [],
+      "reasoning": "The clause references commencement of work after an amendment is executed and notice provided, which relates to timing/renewal of the agreement rather than a standard substantive term like termination or scope. It also involves procedural requirement tied to amendments.",
+      "input_tokens": 784,
+      "output_tokens": 130,
+      "cost_usd": 9.12e-05,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "C",
+      "title": "There shall be no change in the CONSULTANT’s Project Manager or members of the project team, as",
+      "text": "C. There shall be no change in the CONSULTANT’s Project Manager or members of the project team, as \nlisted in the approved Fee Schedule, which is a part of this Agreement without prior written approval by \nthe COMMISSION’s Contract Manager.",
+      "clause_type": "amendment",
+      "start_position": 25772,
+      "end_position": 26014,
+      "confidence": 0.62,
+      "risk_level": "medium",
+      "key_obligations": [
+        "CONSULTANT shall not change the Project Manager or project team members listed in the approved Fee Schedule without prior written approval by the COMMISSION’s Contract Manager."
+      ],
+      "red_flags": [
+        "No explicit remedy if approval is withheld or unreasonably denied",
+        "Possible rigidity over staffing without objective criteria",
+        "Lacks defined process or timeline for approval"
+      ],
+      "reasoning": "The clause restricts changes to personnel and requires prior written approval, reflecting a modification/approval requirement to change team members.",
+      "input_tokens": 804,
+      "output_tokens": 156,
+      "cost_usd": 0.00010260000000000001,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "D",
+      "title": "No oral understanding or agreement not incorporated herein shall be binding on the parties",
+      "text": "D. No oral understanding or agreement not incorporated herein shall be binding on the parties. \n \n18. DISPUTES. This Agreement shall be construed under the laws of the State of California. Pending final \nresolution of a dispute hereunder, CONSULTANT shall proceed diligently with the performance of this \nAgreement and shall comply with COMMISSION’s instructions.",
+      "clause_type": "entire_agreement",
+      "start_position": 26014,
+      "end_position": 26379,
+      "confidence": 0.72,
+      "risk_level": "low",
+      "key_obligations": [
+        "No oral understandings outside written agreement are binding."
+      ],
+      "red_flags": [],
+      "reasoning": "Text states that no oral understanding or agreement not incorporated herein shall be binding, which is a classic integration/entire agreement clause. Also includes a disputes sub-clause about governing law and performance pending resolution.",
+      "input_tokens": 817,
+      "output_tokens": 112,
+      "cost_usd": 8.565000000000001e-05,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "A",
+      "title": "Any dispute, other than audit, concerning a question of fact arising under this Agreement that is not",
+      "text": "A. Any dispute, other than audit, concerning a question of fact arising under this Agreement that is not \ndisposed of by agreement shall be decided by a committee consisting of the COMMISSION’s Contract \nManager and Executive Director, who shall consider written or verbal information submitted by the \nCONSULTANT.",
+      "clause_type": "dispute_resolution",
+      "start_position": 26379,
+      "end_position": 26695,
+      "confidence": 0.74,
+      "risk_level": "medium",
+      "key_obligations": [
+        "Committee decision will resolve disputes on questions of fact not settled by agreement.",
+        "Consultant may submit information (written or verbal) to the committee for consideration."
+      ],
+      "red_flags": [
+        "Clause references an informal committee process without specifying appeal rights, timelines, or binding nature beyond the committee decision",
+        "Excludes audit disputes explicitly; unclear if decisions are binding or reviewable"
+      ],
+      "reasoning": "The clause establishes a process for resolving disputes related to questions of fact, via a committee comprising specified parties, i.e., a dispute resolution mechanism.",
+      "input_tokens": 813,
+      "output_tokens": 157,
+      "cost_usd": 0.00010345000000000002,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "B",
+      "title": "Not later than 30 days after completion of all deliverables necessary to complete the plans, specifications",
+      "text": "B. Not later than 30 days after completion of all deliverables necessary to complete the plans, specifications \nand estimate, the CONSULTANT may request review by the COMMISSION GOVERNING BOARD of \nunresolved claims or disputes, other than audit. The request for review must be submitted in writing.",
+      "clause_type": "dispute_resolution",
+      "start_position": 26695,
+      "end_position": 26996,
+      "confidence": 0.58,
+      "risk_level": "medium",
+      "key_obligations": [
+        " CONSULTANT must complete deliverables within the timeline",
+        " CONSULTANT may request review in writing within 30 days after completion",
+        " COMMISSION GOVERNING BOARD conducts review of unresolved claims or disputes (excluding audit)"
+      ],
+      "red_flags": [
+        "Limitation to unresolved claims 'other than audit' may narrow review scope",
+        "No detail on outcome, standards, or binding effect of the board's review",
+        "Ambiguity about who initiates, timelines for the board, and potential follow-up steps"
+      ],
+      "reasoning": "The clause describes a procedure to request review by a governing board for unresolved claims or disputes, which aligns with dispute resolution mechanisms. It does not fit other categories clearly and sets a specific process rather than general governing law or litigation terms.",
+      "input_tokens": 813,
+      "output_tokens": 211,
+      "cost_usd": 0.00012505,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "C",
+      "title": "Neither the pendency of a dispute, nor its consideration by the committee will excuse the CONSULTANT",
+      "text": "C. Neither the pendency of a dispute, nor its consideration by the committee will excuse the CONSULTANT \nfrom full and timely performance in accordance with the terms of this contract.",
+      "clause_type": "term",
+      "start_position": 26996,
+      "end_position": 27184,
+      "confidence": 0.4,
+      "risk_level": "medium",
+      "key_obligations": [
+        "Consultant must continue full and timely performance under the contract regardless of dispute status or committee review."
+      ],
+      "red_flags": [
+        "Ambiguity about how 'timely performance' is measured",
+        "No exceptions or relief provisions during disputes",
+        "Potentially conflicts with dispute resolution procedures or force majeure concepts"
+      ],
+      "reasoning": "The clause concerns performance obligations during a dispute, but does not clearly fit standard categories like termination, dispute_resolution, or force_majeure. It more closely resembles a general performance obligation during dispute, hence 'term' as a generic classification.",
+      "input_tokens": 789,
+      "output_tokens": 160,
+      "cost_usd": 0.00010345,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "19",
+      "title": "AUDIT REVIEW PROCEDURES",
+      "text": "19. AUDIT REVIEW PROCEDURES",
+      "clause_type": "audit_rights",
+      "start_position": 27184,
+      "end_position": 27213,
+      "confidence": 0.45,
+      "risk_level": "medium",
+      "key_obligations": [],
+      "red_flags": [],
+      "reasoning": "The title mentions audit review procedures, indicating a provision related to audit rights or access to records. The body text is missing, so classification defaults to the closest applicable category based on the title.",
+      "input_tokens": 746,
+      "output_tokens": 97,
+      "cost_usd": 7.61e-05,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "A",
+      "title": "Any dispute concerning a question of fact arising under an interim or post-completion audit of this",
+      "text": "A. Any dispute concerning a question of fact arising under an interim or post-completion audit of this \nAgreement that is not disposed of by agreement, shall be reviewed by the COMMISSION’S Contract \nManager.",
+      "clause_type": "dispute_resolution",
+      "start_position": 27213,
+      "end_position": 27423,
+      "confidence": 0.55,
+      "risk_level": "low",
+      "key_obligations": [
+        "Parties shall refer disputes concerning questions of fact arising under an interim or post-completion audit to the Commission’s Contract Manager for review if not resolved by agreement."
+      ],
+      "red_flags": [
+        "No explicit mechanism (arbitration, mediation, or court) specified for final resolution",
+        "Unclear scope and authority of the Contract Manager",
+        "Potential ambiguity on who bears costs of review"
+      ],
+      "reasoning": "The clause addresses how disputes related to factual questions in audits are to be reviewed, indicating a process for dispute handling rather than a general litigation/arbitration framework.",
+      "input_tokens": 794,
+      "output_tokens": 163,
+      "cost_usd": 0.0001049,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "B",
+      "title": "Not later than 30 days after issuance of the final audit report, the CONSULTANT may request a review",
+      "text": "B. Not later than 30 days after issuance of the final audit report, the CONSULTANT may request a review \nby the COMMISSION’S Executive Director of unresolved audit issues. The request for review will be \nsubmitted in writing.",
+      "clause_type": "dispute_resolution",
+      "start_position": 27423,
+      "end_position": 27650,
+      "confidence": 0.55,
+      "risk_level": "low",
+      "key_obligations": [
+        "Not later than 30 days after issuance of the final audit report, CONSULTANT may request a review",
+        "REQUEST for review must be submitted in writing",
+        "Review will be conducted by the COMMISSION’S Executive Director"
+      ],
+      "red_flags": [
+        "Ambiguity on binding outcome of the review",
+        "No explicit timeline for the Executive Director's decision",
+        "Unclear whether the review is mandatory or consultative"
+      ],
+      "reasoning": "The clause outlines a procedural step for review of unresolved audit issues, implying a recourse beyond initial findings, which aligns with dispute resolution procedures. It is not clearly arbitration/mediation/litigation but serves as an internal review mechanism.",
+      "input_tokens": 802,
+      "output_tokens": 195,
+      "cost_usd": 0.0001181,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "C",
+      "title": "Neither the pendency of a dispute nor its consideration by the COMMISSION will excuse the",
+      "text": "C. Neither the pendency of a dispute nor its consideration by the COMMISSION will excuse the \nCONSULTANT from full and timely performance, in accordance with the terms of this contract.",
+      "clause_type": "term",
+      "start_position": 27650,
+      "end_position": 27839,
+      "confidence": 0.6,
+      "risk_level": "medium",
+      "key_obligations": [
+        "Consultant must perform fully and timely despite dispute or its consideration by the Commission"
+      ],
+      "red_flags": [
+        "No relief during disputes (no excuse for non-performance) could create performance risk if disputes cause delays",
+        "Ambiguity on what constitutes 'timely performance' and potential remedies for delays"
+      ],
+      "reasoning": "The clause relates to timing of performance and ongoing obligations despite disputes, which is a timing/term-related provision rather than a standard category like termination or force_majeure.",
+      "input_tokens": 789,
+      "output_tokens": 145,
+      "cost_usd": 9.745000000000001e-05,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "20",
+      "title": "SUBCONTRACTING",
+      "text": "20. SUBCONTRACTING",
+      "clause_type": "scope_of_work",
+      "start_position": 27839,
+      "end_position": 27859,
+      "confidence": 0.4,
+      "risk_level": "low",
+      "key_obligations": [],
+      "red_flags": [
+        "No substantive text provided; unable to determine actual obligations or restrictions",
+        "Ambiguity about permissibility, approval process, and flow-down terms"
+      ],
+      "reasoning": "The title 'SUBCONTRACTING' and placeholder text suggest the clause would govern whether subcontracting is permitted and under what conditions, which relates to the scope and execution of services rather than a specific risk or obligation.",
+      "input_tokens": 744,
+      "output_tokens": 136,
+      "cost_usd": 9.16e-05,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "A",
+      "title": "The CONSULTANT shall perform the work contemplated with resources available within its own",
+      "text": "A. The CONSULTANT shall perform the work contemplated with resources available within its own \norganization; and no portion of the work pertinent to this Agreement shall be subcontracted without prior \nwritten authorization by the COMMISSION’S Contract Manager, except that, which is expressly \nidentified in the approved Fee Schedule.\n\nPage 9",
+      "clause_type": "scope_of_work",
+      "start_position": 27859,
+      "end_position": 28204,
+      "confidence": 0.72,
+      "risk_level": "medium",
+      "key_obligations": [
+        "Consultant shall perform the work with resources within its own organization",
+        "Subcontracting prohibited without prior written authorization by the Commission’s Contract Manager",
+        "Subcontracting is allowed only for items expressly identified in the approved Fee Schedule"
+      ],
+      "red_flags": [
+        "No express consequences for non-compliance or failure to obtain authorization",
+        "Authority to approve subcontracting is centralized to Contract Manager; potential for delays"
+      ],
+      "reasoning": "The clause describes how the CONSULTANT will perform the work, using its own resources and limiting subcontracting, which relates to the scope and method of performing services.",
+      "input_tokens": 811,
+      "output_tokens": 177,
+      "cost_usd": 0.00011135,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "B",
+      "title": "Any subcontract in excess of $25,000 entered into as a result of this contract, shall contain all the",
+      "text": "B. Any subcontract in excess of $25,000 entered into as a result of this contract, shall contain all the \nprovisions required by this Agreement to be applicable to those subconsultants.",
+      "clause_type": "other",
+      "start_position": 28204,
+      "end_position": 28391,
+      "confidence": 0.45,
+      "risk_level": "medium",
+      "key_obligations": [
+        "Any subcontract over $25,000 must include all provisions required by this Agreement applicable to subconsultants."
+      ],
+      "red_flags": [
+        "Vague about which provisions apply",
+        "No specificity on carve-outs, approval process, or enforcement mechanisms"
+      ],
+      "reasoning": "Not a standard category exactly; it concerns subcontracting and ensuring subcontracts include provisions from the main agreement. Closest fit is 'scope_of_work' or 'assignment'/'amendment' breadth, but it does not fit neatly into a standard category.",
+      "input_tokens": 796,
+      "output_tokens": 152,
+      "cost_usd": 0.0001006,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "C",
+      "title": "No substitution of subconsultants shall be valid until approved in writing by the COMMISSION’s",
+      "text": "C. No substitution of subconsultants shall be valid until approved in writing by the COMMISSION’s \nContract Manager. \n \n21. NONASSIGNMENT. The CONSULTANT shall not assign the Agreement without the prior written consent \nof the COMMISSION. \n \n22. REBATES, KICKBACKS OR OTHER UNLAWFUL CONSIDERATION. The CONSULTANT \nwarrants that this Agreement was not obtained or secured through rebates kickbacks or other unlawful \nconsideration, either promised or paid to any COMMISSION employee. For breach or violation of this \nwarranty, COMMISSION shall have the right in its discretion to terminate the Agreement without liability; to \npay only for the value of the work actually performed; or to deduct from the contract price; or otherwise \nrecover the full amount of such rebate, kickback or other unlawful consideration. \n \n23. NOTIFICATION. All notices hereunder and communications regarding interpretation of the terms of this \nAgreement and changes thereto, shall be effected by the mailing thereof by registered or certified mail, return \nreceipt requested, postage prepaid, and addressed as follows: \n \nCONSULTANT: \n \n \n__________(CONSULTANT)_______________ \n \n \n__________(NAME)________, Project Manager \n \n \n__________(ADDRESS)____________________ \n \n \n \n \nCOMMISSION: \n \n \nSanta Cruz County Regional Transportation Commission (SCCRTC) \n \n \nLuis Mendez, Contract Manager \n \n \n1523 Pacific Ave, Santa Cruz, CA 95060",
+      "clause_type": "assignment",
+      "start_position": 28391,
+      "end_position": 29810,
+      "confidence": 0.45,
+      "risk_level": "medium",
+      "key_obligations": [
+        "Consultant shall not assign the Agreement without prior written consent of the COMMISSION."
+      ],
+      "red_flags": [
+        "No explicit mechanism or standards for consent (subjective discretion of COMMISSION).",
+        "Potential rigidity may affect assignment flexibility for Consultant."
+      ],
+      "reasoning": "The excerpt includes a subsections labeled 'NONASSIGNMENT' prohibiting assignment without consent, and a separate clause about substitution of subconsultants. The dominant binding element is the restriction on assignment of the agreement, which fits 'assignment'. Some elements touch on subcontracting (subconsultants) but the primary risk-related term is the nonassignment clause.",
+      "input_tokens": 1049,
+      "output_tokens": 179,
+      "cost_usd": 0.00012405,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "24",
+      "title": "COMPLETE AGREEMENT",
+      "text": "24. COMPLETE AGREEMENT",
+      "clause_type": "entire_agreement",
+      "start_position": 29810,
+      "end_position": 29834,
+      "confidence": 0.6,
+      "risk_level": "low",
+      "key_obligations": [],
+      "red_flags": [],
+      "reasoning": "The title 'COMPLETE AGREEMENT' and the clause label suggest an integration clause stating that the written agreement constitutes the entire understanding between the parties. No substantive text is provided beyond the title.",
+      "input_tokens": 742,
+      "output_tokens": 98,
+      "cost_usd": 7.630000000000001e-05,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "A",
+      "title": "AGREEMENT: The two parties to this Agreement, who are the before named CONSULTANT and the",
+      "text": "A. AGREEMENT: The two parties to this Agreement, who are the before named CONSULTANT and the \nbefore named COMMISSION, hereby agree that this Agreement constitutes the entire Agreement which \nis made and concluded in duplicate between the two parties. Both of these parties for and in consideration \nof the payments to made, conditions mentioned, and work to be performed; each agree to diligently \nperform in accordance with the terms and conditions of this Agreement as evidenced by the signatures \nbelow.",
+      "clause_type": "entire_agreement",
+      "start_position": 29834,
+      "end_position": 30345,
+      "confidence": 0.74,
+      "risk_level": "low",
+      "key_obligations": [
+        "Both parties acknowledge this document as the entire agreement between CONSULTANT and COMMISSION.",
+        "Parties pledge to diligently perform in accordance with the terms and conditions."
+      ],
+      "red_flags": [],
+      "reasoning": "The clause explicitly states that the agreement constitutes the entire agreement between the parties and that signatures evidence performance; this matches the 'entire_agreement' category (integration clause).",
+      "input_tokens": 850,
+      "output_tokens": 127,
+      "cost_usd": 9.33e-05,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "B",
+      "title": "COMMISSION DESIGNEE: The Executive Director of COMMISSION, or his or her designee, shall",
+      "text": "B. COMMISSION DESIGNEE: The Executive Director of COMMISSION, or his or her designee, shall \nhave the authority to act for and exercise any of the rights of COMMISSION as set forth in this \nAgreement subsequent to, and in accordance with the authorization granted by the COMMISSION.",
+      "clause_type": "authorization",
+      "start_position": 30345,
+      "end_position": 30631,
+      "confidence": 0.55,
+      "risk_level": "low",
+      "key_obligations": [
+        "Designee is empowered to exercise rights of COMMISSION under the Agreement",
+        "Actions must be in accordance with authorization granted by the COMMISSION"
+      ],
+      "red_flags": [
+        "Potential for broader exercise of rights beyond initial scope if not tightly defined",
+        "Designee’s authority depends on existing authorization; need explicit scope and limits"
+      ],
+      "reasoning": "The clause grants authority to a designee to act on behalf of the commission under the agreement. It aligns with related concepts of representation/agency rather than a standard predefined category. If strictly limited to standard categories, closest match is 'assignment' or 'amendment' none fit perfectly; thus 'other' with a similar authorization/agent concept. However, I labeled as 'authorization' to reflect the core idea of delegating rights. Please advise if you want it classified under 'power_of_attorney' or 'assignment' in your taxonomy.",
+      "input_tokens": 818,
+      "output_tokens": 226,
+      "cost_usd": 0.0001313,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "C",
+      "title": "COMPLETE AGREEMENT, INCLUDING ATTACHMENTS. This Agreement includes all exhibits,",
+      "text": "C. COMPLETE AGREEMENT, INCLUDING ATTACHMENTS. This Agreement includes all exhibits, \nattachments, and documents incorporated herein and made applicable by reference, constitutes the \ncomplete and exclusive statement of the terms and conditions of the Agreement between COMMISSION \nand CONSULTANT, and supersedes all prior representations, understandings and communications. The \ninvalidity in whole or in part of any term or condition of this Agreement shall not affect the validity of \nother terms or conditions. The COMMISSION’s waiver of CONSULTANT's performance of any term(s) \nor condition(s) of this Agreement shall not be construed as a waiver for any future performance of such \nterm(s) or conditions(s",
+      "clause_type": "entire_agreement",
+      "start_position": 30631,
+      "end_position": 31345,
+      "confidence": 0.72,
+      "risk_level": "low",
+      "key_obligations": [
+        "This Agreement constitutes the complete and exclusive statement of terms.",
+        "Exhibits, attachments, and documents incorporated by reference are part of the agreement."
+      ],
+      "red_flags": [
+        "No explicit carve-outs for fraud, misrepresentation, or gross negligence",
+        "No severability caveat beyond implying invalid terms do not affect others (though it mentions partial invalidity)"
+      ],
+      "reasoning": "The clause states that the agreement and its attachments constitute the complete and exclusive statement of terms and supersedes prior communications, which is the hallmark of an integration/entire agreement clause.",
+      "input_tokens": 885,
+      "output_tokens": 171,
+      "cost_usd": 0.00011265,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "D",
+      "title": "Attachments are:",
+      "text": "D. Attachments are: \n \nExhibit A: Scope of Services\n\nPage 10 \n \nExhibit B: Fee Schedule \n \nEach of the undersigned represents and warrants that he or she is duly authorized to execute and deliver this \nAgreement and that such execution is binding upon the entity for which he or she is executing this document. \n \nIN WITNESS WHEREOF, the parties hereto have caused this Agreement No. _______ to be executed on the date \nfirst written above.",
+      "clause_type": "warranty",
+      "start_position": 31345,
+      "end_position": 31791,
+      "confidence": 0.55,
+      "risk_level": "low",
+      "key_obligations": [
+        "Signatories represent and warrant they are duly authorized to execute and bind the entity."
+      ],
+      "red_flags": [],
+      "reasoning": "The clause includes a representation/warranty that signatories are duly authorized to execute and bind the entity, which aligns with warranties or representations. It also references attachments/exhibits but primarily contains authorization representations.",
+      "input_tokens": 839,
+      "output_tokens": 118,
+      "cost_usd": 8.915e-05,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "1",
+      "title": "CONSULTANT",
+      "text": "1. CONSULTANT",
+      "clause_type": "other",
+      "start_position": 31791,
+      "end_position": 31812,
+      "confidence": 0.28,
+      "risk_level": "low",
+      "key_obligations": [],
+      "red_flags": [],
+      "reasoning": "The provided text is only a title and a brief note ('CONSULTANT') with no substantive language. It does not express a standard contractual clause or obligations.",
+      "input_tokens": 740,
+      "output_tokens": 89,
+      "cost_usd": 7.26e-05,
+      "sub_clauses": []
+    },
+    {
+      "section_number": "2",
+      "title": "SANTA CRUZ COUNTY REGIONAL",
+      "text": "2. SANTA CRUZ COUNTY REGIONAL \n \n \n \n \n \n \n \nTRANSPORTATION COMMISSION \n \n \n \n \n \nBy: _______________________________ \nBy: \n_____________________________ \n SIGNED \n \n \n \n \n \n SIGNED \n _________________________________ \n______________________________ \n PRINTED \n \n \n \n \n PRINTED \n \nCompany Name: _____________ \nAddress: ______________ \nTelephone:( ) __________ \nFax: ( ) __________ \nEmail: ________________________ \n \n3. APPROVED AS TO INSURANCE: \n4. APPROVED AS TO FORM: \n \n \n_________________________ \n \n_________________________ \nAdministrative Services Officer \n \n COMMISSION Counsel \n \nDISTRIBUTION: \n \n RTC Fiscal & Contract Manager \n \nCONSULTANT \n \n\\\\Rtcserv2\\shared\\CONTRACT\\MASTERCO\\Template\\MasterContracts.doc",
+      "clause_type": "other",
+      "start_position": 31812,
+      "end_position": 32533,
+      "confidence": 0.32,
+      "risk_level": "low",
+      "key_obligations": [],
+      "red_flags": [],
+      "reasoning": "The provided text appears to be a signature block/template metadata (approvals, signatures, contact info) rather than a substantive contractual clause. It does not fit standard categories of indemnification, termination, etc.",
+      "input_tokens": 899,
+      "output_tokens": 98,
+      "cost_usd": 8.415000000000001e-05,
+      "sub_clauses": []
+    }
+  ]
+}
