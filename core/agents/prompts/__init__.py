@@ -25,6 +25,11 @@ from core.agents.prompts.definition_validator_prompt import (
     DEFINITION_VALIDATOR_USER_PROMPT_TEMPLATE,
     format_definition_validator_prompt,
 )
+from core.agents.prompts.comparison_agent_prompt import (
+    COMPARISON_AGENT_SYSTEM_PROMPT,
+    COMPARISON_AGENT_USER_PROMPT_TEMPLATE,
+    format_comparison_agent_prompt,
+)
 
 __all__ = [
     "OBLIGATION_EXTRACTOR_SYSTEM_PROMPT",
@@ -42,5 +47,8 @@ __all__ = [
     "DEFINITION_VALIDATOR_SYSTEM_PROMPT",
     "DEFINITION_VALIDATOR_USER_PROMPT_TEMPLATE",
     "format_definition_validator_prompt",
+    "COMPARISON_AGENT_SYSTEM_PROMPT",
+    "COMPARISON_AGENT_USER_PROMPT_TEMPLATE",
+    "format_comparison_agent_prompt",
 ]
 
