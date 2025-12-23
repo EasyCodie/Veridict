@@ -1,5 +1,8 @@
 # Product Requirements Document (PRD): Veridict
 
+## Agent Instructions
+Use this PRD as an overview of the Veridict system. Not as a reference for development. For development, see the Veridict_PRD.md file which contains the full technical details of the system.
+
 ## 1. Executive Summary
 
 Veridict is an autonomous, "Zero-Error" legal due diligence engine designed to automate the review of high-volume legal contracts (e.g., M&A Data Rooms). Veridict utilizes the MAKER Framework (Massively Decomposed Agentic Processes) to perform execution tasks independently with mathematical reliability.
@@ -48,7 +51,7 @@ Heuristics: Discards outputs that are incorrectly formatted, excessively long, o
 
 Manager / Architect: Claude 4.5 Opus (Anthropic)
 
-Worker / Voter: GPT-4o-mini (OpenAI)
+Worker / Voter: GPT-5-nano (OpenAI)
 
 Embeddings: OpenAI text-embedding-3-small
 
