@@ -66,6 +66,7 @@ tests/hybrid_clause_output.json
 # Keep sample_contract.pdf as a minimal example, exclude large user PDFs
 tests/SampleContract-Shuttle.pdf
 tests/model-contract.pdf
+tests/annual-report.pdf
 
 # Keep only minimal sample for testing
 # tests/sample_contract.pdf  # This one IS committed as example

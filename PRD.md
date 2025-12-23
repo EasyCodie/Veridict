@@ -108,7 +108,7 @@ Veridict Cost: ~$30 - $60 (via Batch API)
 
 Manual Time: ~2 Months
 
-Veridict Time: ~2 Hours
+Veridict Time: ~24 Hours
 
 ### 8. KPIs (Key Performance Indicators)
 
