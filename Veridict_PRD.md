@@ -210,7 +210,7 @@ Transform raw, unstructured legal PDFs into a structured stream of atomic, indep
 
 **Process:**
 1. **PDF Parsing:**
-   - Use [PDFPlumber](https://github.com/jsvine/pdfplumber) or [PyPDF4](https://github.com/claydh/PyPDF4) for text extraction
+   - Use [PyMuPDF](https://github.com/pymupdf/PyMuPDF) for text extraction
    - Preserve page boundaries and text coordinates
    - Extract tables and special formatting markers
 
@@ -385,12 +385,12 @@ def validate_decomposition(clauses, original_document):
 ### 3.5 Implementation Stack
 
 **Technologies:**
-- **PDF Processing:** PDFPlumber + PyMuPDF (fitz)
+- **PDF Processing:** PyMuPDF (fitz)
 - **OCR (Optional):** Tesseract OCR + Pytesseract wrapper
 - **Layout Analysis:** Detectron2 (for document structure detection) OR simple heuristic-based approach (for MVP)
-- **NLP/Classification:** spaCy (lightweight) + optional LLM classifier (Claude/GPT-4-mini)
+- **NLP/Classification:** spaCy (lightweight) + optional LLM classifier (GPT-5-nano)
 - **Streaming Output:** NDJSON format (one JSON per line)
-- **Language:** Python 3.10+ with async I/O (asyncio)
+- **Language:** Python 3.11+ with async I/O (asyncio)
 
 **Performance Targets:**
 | Metric | Target |
@@ -471,7 +471,7 @@ Execute stateless, highly-focused micro-tasks on individual clauses using small-
   "clarification_required": "boolean",
   "clarification_note": "string | null",
   "execution_timestamp": "ISO8601",
-  "model_used": "string (e.g., 'gpt-4-mini')"
+  "model_used": "string (e.g., 'gpt-5-nano')"
 }
 ```
 
@@ -655,27 +655,24 @@ RESPONSE (JSON ONLY, NO EXPLANATIONS):
 | **Latency** | < 2 seconds per task (allows parallelization) |
 | **Consistency** | Low variance between runs (high semantic consistency) |
 
-**Recommended Models (Ranked by Performance/Cost):**
+**Recommended Model:**
 
 | Model | Provider | Cost | Latency | Strengths | Notes |
 |---|---|---|---|---|---|
-| **GPT-4-mini** | OpenAI | $0.00075 in / $0.003 out | ~1.5s | Reliable instruction following; low error rate | Preferred for voting |
-| **Claude 3.5 Haiku** | Anthropic | $0.008 in / $0.0004 out | ~2s | Strong reasoning; good with complex tasks | Good alternative |
-| **Mistral-7B** | Mistral | $0.00007 in / $0.00021 out | ~3s | Cost-effective; good instruction following | For cost-sensitive deployments |
-| **Llama 3.1 8B** | Meta | $0.0002 in / $0.001 out | ~2.5s | Open-weight; low cost | Requires self-hosting |
+| **GPT-5-nano** | OpenAI | $0.05 in / $0.4 out | ~1.5s | Reliable instruction following; low error rate | 
 
 **Configuration (per task):**
 
 ```json
 {
-  "model": "gpt-4-mini",
+  "model": "gpt-5-nano",
   "temperature": 0.0,
   "max_tokens": 800,
   "top_p": 1.0,
   "frequency_penalty": 0.0,
   "presence_penalty": 0.0,
   "response_format": "json",
-  "timeout": 10,
+  "timeout": 10,  
   "retry_policy": {
     "max_retries": 3,
     "backoff_factor": 2,
@@ -827,7 +824,7 @@ async def stateless_analyze_clause(clause, task_instructions):
 {
   "task_metrics": {
     "execution_time_ms": 1500,
-    "model": "gpt-4-mini",
+    "model": "gpt-5-nano",
     "tokens_used": 450,
     "cost_usd": 0.00135,
     "output_format_valid": true,
@@ -1337,7 +1334,7 @@ Raw PDF
   "task_type": "obligation_extraction",
   "task_instructions": "Extract all obligations from this clause",
   "agent_config": {
-    "model": "gpt-4-mini",
+    "model": "gpt-5-nano",
     "k": 3
   }
 }
